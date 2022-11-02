@@ -1,19 +1,14 @@
 import React from 'react';
 import {
-  Button,
-  ScrollView,
+  Image,
+  Text,
+  Pressable,
   View,
 } from 'react-native';
-import styles from '../styles/styles';
+import styles from '../styles/homeScreenStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-const configurePersonalContact = (navigation) => {
-  console.log("Ir para a tela de configuracao de contato")
-  navigation.navigate("personalContact")
-  // TODO: quando a outra tela for chamada, imediatamente checar se ter permissao, se nao pedir,
-  // se sim continuar
-  // se negado, voltar pra essa tela
-}
+import ConfigureContactButton from '../components/ConfigureContactButton';
+import configurePersonalContact from '../utils/configurePersonalContact';
 
 const contactEmergency = (number, navigation) => {
   console.log(`Contacting emergency ${number}`)
@@ -32,18 +27,41 @@ const callEmergencyNumber = (number) => {
   console.log(`Calling ${number}`)
 }
 
+const CallEmergencyButton = ({title, navigation, number}) => {
+  console.log(title)
+  
+  return <Pressable style={styles.callEmergencyButton} onPress={() => {contactEmergency(number, navigation)}}>
+    <Image style={styles.callButtonImage}/>
+    <Text style={styles.callButtonText}>{`${title}`}</Text>
+  </Pressable>
+}
+
+const CallPersonalContactButton = ({navigation}) => {
+  var number = 111
+
+  return number ?
+    <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(number, navigation)}}>
+      <Image style={styles.personalContactButton}/>
+      <Text style={styles.personalContactText}>Contato</Text>
+    </Pressable>
+  :
+    <Pressable style={styles.addPersonalContact} onPress={() => {configurePersonalContact(navigation)}}>
+      <Image style={styles.personalContactButton}/>
+      <Text style={styles.personalContactText}>Adicionar</Text>
+    </Pressable>
+    
+}
+
 const HomeScreen  = ({navigation}) => {
   return (
-    <SafeAreaView >
-      <ScrollView>
-        <View>
-          <Button title="Call emergency number" onPress={() => {contactEmergency(190, navigation)}}/>
-          <Button title="Call emergency number" onPress={() => {contactEmergency(190, navigation)}}/>
-          <Button title="Call emergency number" onPress={() => {contactEmergency(190, navigation)}}/>
-          <Button title="Call personal contact" onPress={() => {contactEmergency(190, navigation)}}/>
-          <Button title="Configurar o contato pessoal" onPress={() => {configurePersonalContact(navigation)}}/>
+    <SafeAreaView style={{flex: 1}}>
+        <View style={styles.homeScreenView}>
+          <CallPersonalContactButton navigation={navigation}/>
+          <CallEmergencyButton title="Emergencia" number="190" navigation={navigation} />
+          <CallEmergencyButton title="Policia" number="191" navigation={navigation} />
+          <CallEmergencyButton title="Bombeiros" number="192" navigation={navigation} />
+          <ConfigureContactButton navigation={navigation} />
         </View>
-      </ScrollView>
     </SafeAreaView>
   );
 };
