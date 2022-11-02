@@ -1,18 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
-    Button,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
+  Pressable,
   Text,
-  useColorScheme,
   View,
 } from 'react-native';
 
-import {
-  Colors
-} from 'react-native/Libraries/NewAppScreen';
+import styles from '../styles/welcomeStyles';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const addNewContact = () => {
   console.log("TODO: add a new contact logic")
@@ -23,43 +18,33 @@ const goToMainScreen = (navigation) => {
   navigation.navigate("home")
 }
 
+const addContactButtonStyle = (pressed) => {
+  console.log("setting button style")
+  return pressed ? styles.addContactButtonPressed : styles.addContactButton
+}
+
+//TODO: MAYBE add the pressed style to the text
+
 const WelcomeScreen = ({navigation}) => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <ScrollView>
-        <View>
-          <Text>Bem vindo</Text>
-          <Button title="Adicionar agora" onPress={addNewContact}/>
-          <Button title="Adicionar depois" onPress={() => {goToMainScreen(navigation)}}/>
+  <SafeAreaView style={{flex: 1}}>
+      <View style={styles.welcomeView}>
+        <Text style={styles.welcomeText}>
+          Fique bem.{"\n"}Busque ajuda de forma 
+            <Text style={styles.welcomeTextHighlight}> rapida</Text>, <Text style={styles.welcomeTextHighlight}>simples</Text>, 
+            e com <Text style={styles.welcomeTextHighlight}>seguranca</Text>
+        </Text>
+        <View style={styles.welcomeButtonView}>
+          <Pressable onPress={addNewContact} style={ ({pressed}) => addContactButtonStyle(pressed)}>
+            <Text style={styles.addContactText}>Adicionar contato de emergencia</Text>
+          </Pressable>
+          <Pressable onPress={() => {goToMainScreen(navigation)}} style={styles.addLatterButton}>
+            <Text style={styles.addLaterText}>Adicionar depois</Text>
+          </Pressable>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default WelcomeScreen;

@@ -1,20 +1,18 @@
 import React from 'react';
 import {
   Button,
-  SafeAreaView,
   ScrollView,
-  StyleSheet,
-  useColorScheme,
   View,
 } from 'react-native';
-
-import {
-  Colors
-} from 'react-native/Libraries/NewAppScreen';
+import styles from '../styles/styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const configurePersonalContact = (navigation) => {
   console.log("Ir para a tela de configuracao de contato")
   navigation.navigate("personalContact")
+  // TODO: quando a outra tela for chamada, imediatamente checar se ter permissao, se nao pedir,
+  // se sim continuar
+  // se negado, voltar pra essa tela
 }
 
 const contactEmergency = (number, navigation) => {
@@ -35,14 +33,8 @@ const callEmergencyNumber = (number) => {
 }
 
 const HomeScreen  = ({navigation}) => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView >
       <ScrollView>
         <View>
           <Button title="Call emergency number" onPress={() => {contactEmergency(190, navigation)}}/>
@@ -55,24 +47,5 @@ const HomeScreen  = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default HomeScreen;
