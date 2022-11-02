@@ -10,6 +10,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ConfigureContactButton from '../components/ConfigureContactButton';
 import configurePersonalContact from '../utils/configurePersonalContact';
 
+// TODO: add the images
+// TODO: MAYBE refactor the components to other files
+
 const contactEmergency = (number, navigation) => {
   console.log(`Contacting emergency ${number}`)
   callEmergencyNumber(number)
