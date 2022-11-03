@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import { defaultMargin } from './styles'
+import { defaultMargin, largeTextSize, mediumTextSize } from './styles'
 
 export default StyleSheet.create({
     welcomeView: {
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     },
     welcomeText: {
       color: colors.light,
-      fontSize: 45,
+      fontSize: largeTextSize + 15,
       alignSelf: 'flex-start',
       fontWeight: 'bold',
       flex: 2
@@ -46,7 +46,8 @@ export default StyleSheet.create({
       left:0,
       color: colors.light,
       fontWeight: 'bold',
-      fontSize: 20
+      fontSize: mediumTextSize,
+      textAlign: 'center'
     },
     addLatterButton: {
       padding: 20,
@@ -59,8 +60,9 @@ export default StyleSheet.create({
       left:0,
       color: colors.light,
       fontWeight: 'bold',
-      fontSize: 20,
-      textDecorationLine: 'underline'
+      fontSize: mediumTextSize,
+      textDecorationLine: 'underline',
+      textAlign: 'center'
     },
     welcomeTextHighlight : {
       color: colors.yellow,

@@ -13,8 +13,7 @@ export default StyleSheet.create({
         borderRadius: 100,
     },
     configureImage: {
-        width: 20,
-        height: 20,
-        backgroundColor: colors.dark,
+        width: 33,
+        height: 33
     }
 });

@@ -9,7 +9,7 @@ import configurePersonalContact from "../utils/configurePersonalContact"
 
 const ConfigureContactButton = ({navigation}) => {
     return <Pressable style={styles.configureContactButton} onPress={() => {configurePersonalContact(navigation)}}>
-      <Image style={styles.configureImage}/>
+      <Image style={styles.configureImage} source={require('../assets/configurations_icon.png')}/>
     </Pressable>
 }
 

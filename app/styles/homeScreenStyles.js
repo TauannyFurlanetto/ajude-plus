@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from './colors';
-import {defaultMargin} from './styles';
+import {defaultMargin, largeTextSize} from './styles';
 
 export default StyleSheet.create({
   homeScreenView: {
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     gap: 10,
   },
   callPersonalContact: {
-    padding: 20,
+    padding: 13,
     borderColor: colors.yellow,
     borderWidth: 5,
     borderRadius: 100,
@@ -30,7 +30,7 @@ export default StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   addPersonalContact: {
-    padding: 20,
+    padding: 13,
     borderColor: colors.yellow,
     borderWidth: 5,
     borderRadius: 100,
@@ -45,7 +45,7 @@ export default StyleSheet.create({
     top: 0,
     left: 0,
     color: colors.light,
-    fontSize: 30,
+    fontSize: largeTextSize + 5,
     fontWeight: 'bold',
     textTransform: 'uppercase'
   },
@@ -54,7 +54,7 @@ export default StyleSheet.create({
     top: 0,
     left: 0,
     color: colors.dark,
-    fontSize: 25,
+    fontSize: largeTextSize,
     fontWeight: 'bold',
     textTransform: 'uppercase'
   },
@@ -62,11 +62,14 @@ export default StyleSheet.create({
     width: 95,
     height: 95,
     marginBottom: 10,
-    backgroundColor: colors.dark,
+    resizeMode:'contain'
   },
-  personalContactButton: {
-    width: 50,
-    height: 50,
-    backgroundColor: colors.yellow,
+  callPersonalContactImage: {
+    width: 40,
+    height: 40
+  },
+  addpersonalContactImage: {
+    width: 48,
+    height: 48
   }
 });

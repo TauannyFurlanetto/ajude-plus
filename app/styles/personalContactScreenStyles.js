@@ -1,29 +1,34 @@
 import {StyleSheet} from 'react-native';
 import colors from './colors';
-import {defaultMargin} from './styles';
+import {defaultMargin, mediumTextSize} from './styles';
 
 export default StyleSheet.create({
     personalContactView: {
         flex:1,
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         marginHorizontal: defaultMargin,
-        marginVertical: defaultMargin + 10,
-        backgroundColor: 'red'
+        marginVertical: defaultMargin + 10
     },
     contactCardView: {
+        width: '100%',
+        marginBottom: defaultMargin * 8
+    },
+    contactCardTextView: {
         backgroundColor: colors.light,
         padding: 30,
         borderColor: colors.light,
         borderRadius: 20,
-        borderWidth: 1
+        borderWidth: 1,
+        marginBottom: 10
     },
     contactCardText: {
-        fontSize: 20,
-        color: colors.dark
+        fontSize: mediumTextSize,
+        color: colors.dark,
+        lineHeight: 35
     },
     contactCardTextHighlight: {
-        fontSize: 20,
+        fontSize: mediumTextSize,
         color: colors.dark,
         fontWeight: 'bold'
     },
@@ -31,20 +36,21 @@ export default StyleSheet.create({
         alignSelf: 'flex-end'
     },
     removeContactImage: {
-        width: 30,
-        height: 30,
-        backgroundColor: colors.yellow,
+        width: 45,
+        height: 45
     },
     updateContactButton: {
         backgroundColor: colors.yellow,
         padding: 15,
         borderColor: colors.yellow,
-        borderRadius: 20,
-        borderWidth: 1
+        borderRadius: 100,
+        borderWidth: 1,
+        width: '100%'
     },
     updateContactText: {
-        fontSize: 20,
+        fontSize: mediumTextSize,
         color: colors.dark,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 });
