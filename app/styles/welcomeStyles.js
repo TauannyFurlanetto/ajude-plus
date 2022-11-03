@@ -46,7 +46,7 @@ export default StyleSheet.create({
       left:0,
       color: colors.light,
       fontWeight: 'bold',
-      fontSize: 18
+      fontSize: 20
     },
     addLatterButton: {
       padding: 20,
@@ -59,7 +59,7 @@ export default StyleSheet.create({
       left:0,
       color: colors.light,
       fontWeight: 'bold',
-      fontSize: 18,
+      fontSize: 20,
       textDecorationLine: 'underline'
     },
     welcomeTextHighlight : {

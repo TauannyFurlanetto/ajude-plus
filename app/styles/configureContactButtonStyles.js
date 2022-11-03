@@ -16,5 +16,5 @@ export default StyleSheet.create({
         width: 20,
         height: 20,
         backgroundColor: colors.dark,
-      },
+    }
 });
