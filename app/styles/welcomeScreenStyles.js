@@ -17,7 +17,11 @@ export default StyleSheet.create({
       fontWeight: 'bold',
       flex: 2
     },
-    welcomeButtonView: {
+    welcomeTextHighlight : {
+      color: colors.yellow,
+      fontWeight: 'bold'
+    },
+    addContactButtonsView: {
       flex: 1,
       margin: 0,
       padding: 0,
@@ -63,9 +67,5 @@ export default StyleSheet.create({
       fontSize: mediumTextSize,
       textDecorationLine: 'underline',
       textAlign: 'center'
-    },
-    welcomeTextHighlight : {
-      color: colors.yellow,
-      fontWeight: 'bold'
     }
 });

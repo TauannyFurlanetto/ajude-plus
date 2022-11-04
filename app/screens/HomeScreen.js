@@ -8,7 +8,7 @@ import {
 import styles from '../styles/homeScreenStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ConfigureContactButton from '../components/ConfigureContactButton';
-import configurePersonalContact from '../utils/configurePersonalContact';
+import configurePersonalContact from '../js/configurePersonalContact';
 
 // TODO: add the images
 // TODO: MAYBE refactor the components to other files
@@ -40,13 +40,14 @@ const CallEmergencyButton = ({title, navigation, number}) => {
   console.log(title)
  
   return <Pressable style={styles.callEmergencyButton} onPress={() => {contactEmergency(number, navigation)}}>
-    <Image style={styles.callButtonImage} source={emergencyButtonImage[number]}/>
+    <Image style={styles.callEmergencyImage} source={emergencyButtonImage[number]}/>
     <Text style={styles.callButtonText}>{`${title}`}</Text>
   </Pressable>
 }
 
 const CallPersonalContactButton = ({navigation}) => {
-  var number = null
+  // TODO: where this number will be passed
+  var number = 111
 
   return number ?
     <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(number, navigation)}}>

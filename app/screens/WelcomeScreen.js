@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 
-import styles from '../styles/welcomeStyles';
+import styles from '../styles/welcomeScreenStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const addNewContact = () => {
@@ -25,6 +25,14 @@ const addContactButtonStyle = (pressed) => {
 
 //TODO: MAYBE add the pressed style to the text
 
+const AddContactButton = () => <Pressable onPress={addNewContact} style={ ({pressed}) => addContactButtonStyle(pressed)}>
+<Text style={styles.addContactText}>Adicionar contato de emergencia</Text>
+</Pressable>
+
+const AddContactLaterButton = ({navigation}) =>  <Pressable onPress={() => {goToMainScreen(navigation)}} style={styles.addLatterButton}>
+<Text style={styles.addLaterText}>Adicionar depois</Text>
+</Pressable>
+
 const WelcomeScreen = ({navigation}) => {
   return (
   <SafeAreaView style={{flex: 1}}>
@@ -34,13 +42,9 @@ const WelcomeScreen = ({navigation}) => {
             <Text style={styles.welcomeTextHighlight}> rapida</Text>, <Text style={styles.welcomeTextHighlight}>simples</Text>, 
             e com <Text style={styles.welcomeTextHighlight}>seguranca</Text>
         </Text>
-        <View style={styles.welcomeButtonView}>
-          <Pressable onPress={addNewContact} style={ ({pressed}) => addContactButtonStyle(pressed)}>
-            <Text style={styles.addContactText}>Adicionar contato de emergencia</Text>
-          </Pressable>
-          <Pressable onPress={() => {goToMainScreen(navigation)}} style={styles.addLatterButton}>
-            <Text style={styles.addLaterText}>Adicionar depois</Text>
-          </Pressable>
+        <View style={styles.addContactButtonsView}>
+          <AddContactButton />
+          <AddContactLaterButton navigation={navigation}/>
         </View>
       </View>
     </SafeAreaView>

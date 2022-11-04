@@ -8,6 +8,8 @@ import PersonalContactScreen from './screens/PersonalContactScreen';
 import MessageSentScreen from './screens/MessageSentScreen';
 import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { mediumTextSize } from './styles/styles';
+import styles from './styles/navigatorStyles';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +28,7 @@ const App  = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={CustomTheme}>
-        <Stack.Navigator>
+        <Stack.Navigator cardShadowEnabled={false} screenOptions={{headerTitleStyle: styles.navigatorHeader }}>
           <Stack.Screen 
             name="welcome"
             component={WelcomeScreen}
