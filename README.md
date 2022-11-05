@@ -20,19 +20,18 @@ Voce vai precisar ter o `npm` e o `Android Studio` instalados, siga o tutorial o
 ```
 npm install
 ```
-2. Inicie o emulador no AndroidStudio
 
 A partir dai voce pode ou iniciar o app com o `Expo`  ou fazendo um build manual.
 
 **expo**
 
 1. Execute o comando `npx expo start` no terminal.
-2. Espere o projeto iniciar e digite `a` para iniciar o app no android.
+2. Ou:
+    - Inicie o emulador no AndroidStudio e espere o projeto iniciar e digite `a` para iniciar o app no emulador.
+    - Instale o app `Expo Go` no seu celular e escanei o QRCode no terminal do expo
 3. No emulador, clique em `expo go`.
 
-Voce tambem pode usar o app `Expo Go` no seu celular e escanear o QRCode que apareceu quando voce iniciou o expo no terminal.
-
-Caso voce nao consiga se conectar pelo app, desligue o firewall privado no seu computador temporariamente e tente de novo.
+Caso voce decida usar o ExpoGo e nao consiga se conectar pelo app, desligue temporariamente o firewall privado no seu computador e tente de novo.
 
 **manual**
 
