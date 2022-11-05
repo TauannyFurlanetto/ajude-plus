@@ -28,7 +28,9 @@ const App  = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={CustomTheme}>
-        <Stack.Navigator cardShadowEnabled={false}>
+        <Stack.Navigator cardShadowEnabled={false} screenOptions={{
+          headerTitleAllowFontScaling:false
+        }}>
           <Stack.Screen 
             name="welcome"
             component={WelcomeScreen}
