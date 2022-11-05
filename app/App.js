@@ -10,6 +10,7 @@ import MessageSentScreen from './screens/MessageSentScreen';
 import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from './styles/navigatorStyles';
+import { StatusBar } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -47,7 +48,7 @@ const App  = () => {
             options={
               {
                 title: 'Contato de emergencia',
-                headerStyle: {height: 72},
+                headerStyle: {height: StatusBar.currentHeight + 72},
                 headerTitleStyle:styles.personalContactHeader
               }
             }
@@ -58,7 +59,7 @@ const App  = () => {
             options={
               {
                 title: 'Ambulancia',
-                headerStyle: {height: 72},
+                headerStyle: {height: StatusBar.currentHeight + 72},
                 headerTitleStyle:styles.messageSentHeader
               }
             }
