@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  Text,
   View
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/messageSentScreenStyles';
-import ConfigureContactButton from '../components/ConfigureContactButton'
+import ConfigureContactButton from '../components/ConfigureContactButton';
+import {default as Text} from '../components/UnscalableText';
 
 const MessageSentScreen  = ({navigation}) => {
   return (

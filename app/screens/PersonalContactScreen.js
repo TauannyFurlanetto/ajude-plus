@@ -2,11 +2,11 @@ import React from 'react';
 import {
   Image,
   Pressable,
-  Text,
   View,
 } from 'react-native';
 import styles from '../styles/personalContactScreenStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {default as Text} from '../components/UnscalableText';
 
 const updateContact = () => {
   console.log("TODO: update the personal contact logic")

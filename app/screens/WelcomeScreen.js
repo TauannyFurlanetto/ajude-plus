@@ -2,12 +2,12 @@ import React from 'react';
 
 import {
   Pressable,
-  Text,
   View,
 } from 'react-native';
 
 import styles from '../styles/welcomeScreenStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {default as Text} from '../components/UnscalableText';
 
 const addNewContact = () => {
   console.log("TODO: add a new contact logic")

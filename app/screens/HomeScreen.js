@@ -1,14 +1,14 @@
 import React from 'react';
 import {
   Image,
-  Text,
   Pressable,
-  View,
+  View
 } from 'react-native';
 import styles from '../styles/homeScreenStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ConfigureContactButton from '../components/ConfigureContactButton';
 import configurePersonalContact from '../js/configurePersonalContact';
+import {default as Text} from '../components/UnscalableText';
 
 // TODO: add the images
 // TODO: MAYBE refactor the components to other files
