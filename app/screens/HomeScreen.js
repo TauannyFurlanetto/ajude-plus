@@ -69,7 +69,7 @@ const HomeScreen  = ({navigation}) => {
           <CallPersonalContactButton navigation={navigation}/>
           <CallEmergencyButton title="Policia" number="190" navigation={navigation} />
           <CallEmergencyButton title="Ambulancia" number="192" navigation={navigation} />
-          <CallEmergencyButton title="Bombeiros" number="193" navigation={navigation} />
+          <CallEmergencyButton title="Bombeiro" number="193" navigation={navigation} />
           <ConfigureContactButton navigation={navigation} />
         </View>
     </SafeAreaView>

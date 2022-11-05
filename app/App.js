@@ -1,17 +1,17 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 
 import WelcomeScreen from  './screens/WelcomeScreen';
 import HomeScreen from  './screens/HomeScreen';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import PersonalContactScreen from './screens/PersonalContactScreen';
 import MessageSentScreen from './screens/MessageSentScreen';
 import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { mediumTextSize } from './styles/styles';
 import styles from './styles/navigatorStyles';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const CustomTheme = {
   ...DefaultTheme,
@@ -28,7 +28,7 @@ const App  = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={CustomTheme}>
-        <Stack.Navigator cardShadowEnabled={false} screenOptions={{headerTitleStyle: styles.navigatorHeader }}>
+        <Stack.Navigator cardShadowEnabled={false}>
           <Stack.Screen 
             name="welcome"
             component={WelcomeScreen}
@@ -42,12 +42,24 @@ const App  = () => {
           <Stack.Screen 
             name="personalContact"
             component={PersonalContactScreen}
-            options={{ title: 'Contato de emergencia'}}
+            options={
+              {
+                title: 'Contato de emergencia',
+                headerStyle: {height: 72},
+                headerTitleStyle:styles.personalContactHeader
+              }
+            }
           />
           <Stack.Screen 
             name="messageSent"
             component={MessageSentScreen}
-            options={{ title: 'Emergencia' }}
+            options={
+              {
+                title: 'Ambulancia',
+                headerStyle: {height: 72},
+                headerTitleStyle:styles.messageSentHeader
+              }
+            }
           />
         </Stack.Navigator>
       </NavigationContainer>
