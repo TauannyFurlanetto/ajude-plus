@@ -11,7 +11,7 @@ import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from './styles/navigatorStyles';
 import {  StatusBar } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getIsFirstLaunch } from './data/LocalStorage';
 
 const Stack = createStackNavigator();
 
@@ -29,21 +29,18 @@ const CustomTheme = {
 const App  = () => {
   const [isFirstLauch, setIsFirstLaunch] = useState(true);
 
-  
-
   useEffect(()=>{
-    AsyncStorage.getItem('firstLaunch', (err, result) => {
-      if (err) {
-      } else {
+    getIsFirstLaunch()
+      .then((result) => {
         if (result == null) {
-          console.log("null value received", result);
           setIsFirstLaunch(true);
-        } else if (result === JSON.stringify({"value": "false"})){
-          console.log("the result is false, the welcome screen wont be enabled")
-          setIsFirstLaunch(false)
+        } else if (result === false){
+          setIsFirstLaunch(false);
         }
-      }
-    });
+      })
+      .catch ((e) => (
+        console.log("Failed to fetch from database: ", e)
+      ))
   }, [])
 
   return (
