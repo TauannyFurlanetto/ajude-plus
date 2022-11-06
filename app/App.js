@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import WelcomeScreen from  './screens/WelcomeScreen';
 import HomeScreen from  './screens/HomeScreen';
@@ -10,7 +10,8 @@ import MessageSentScreen from './screens/MessageSentScreen';
 import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from './styles/navigatorStyles';
-import { StatusBar } from 'react-native';
+import {  StatusBar } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createStackNavigator();
 
@@ -26,17 +27,38 @@ const CustomTheme = {
 }
 
 const App  = () => {
+  const [isFirstLauch, setIsFirstLaunch] = useState(true);
+
+  
+
+  useEffect(()=>{
+    AsyncStorage.getItem('firstLaunch', (err, result) => {
+      if (err) {
+      } else {
+        if (result == null) {
+          console.log("null value received", result);
+          setIsFirstLaunch(true);
+        } else if (result === JSON.stringify({"value": "false"})){
+          console.log("the result is false, the welcome screen wont be enabled")
+          setIsFirstLaunch(false)
+        }
+      }
+    });
+  }, [])
+
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={CustomTheme}>
         <Stack.Navigator cardShadowEnabled={false} screenOptions={{
           headerTitleAllowFontScaling:false
         }}>
-          <Stack.Screen 
-            name="welcome"
-            component={WelcomeScreen}
-            options={{headerShown: false}}
-          />
+          {
+            isFirstLauch ? <Stack.Screen 
+             name="welcome"
+             component={WelcomeScreen}
+             options={{headerShown: false}}
+           /> : null
+          }
           <Stack.Screen 
             name="home"
             component={HomeScreen}

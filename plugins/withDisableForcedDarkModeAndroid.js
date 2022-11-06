@@ -1,4 +1,8 @@
-import { createRunOncePlugin, withAndroidStyles, AndroidConfig } from 'expo/config-plugins';
+const {
+    createRunOncePlugin,
+    withAndroidStyles,
+    AndroidConfig
+} = require('@expo/config-plugins');
 
 function setForceDarkModeToFalse(styles) {
     styles = AndroidConfig.Styles.assignStylesValue(styles, {
@@ -18,4 +22,4 @@ const withDisableForcedDarkModeAndroid = (config) => {
     });
 };
 
-export default createRunOncePlugin(withDisableForcedDarkModeAndroid, 'disable-forced-dark-mode', '1.0.0');
+module.exports = createRunOncePlugin(withDisableForcedDarkModeAndroid, 'disable-forced-dark-mode', '1.0.0');
