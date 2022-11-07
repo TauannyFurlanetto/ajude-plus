@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Image,
   Pressable,
@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ConfigureContactButton from '../components/ConfigureContactButton';
 import configurePersonalContact from '../js/configurePersonalContact';
 import {default as Text} from '../components/UnscalableText';
+import { getPersonalContact } from '../data/LocalStorage';
 
 // TODO: add the images
 // TODO: MAYBE refactor the components to other files
@@ -45,28 +46,38 @@ const CallEmergencyButton = ({title, navigation, number}) => {
   </Pressable>
 }
 
-const CallPersonalContactButton = ({navigation}) => {
-  // TODO: where this number will be passed
-  var number = 111
-
-  return number ?
-    <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(number, navigation)}}>
+const CallPersonalContactButton = ({navigation, personalContact}) => {
+  return personalContact ?
+    <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(personalContact.number, navigation)}}>
       <Image style={styles.callPersonalContactImage} source={require('../assets/phone_icon.png')}/>
-      <Text style={styles.personalContactText}>Contato</Text>
+      <Text style={styles.personalContactText}>{personalContact.name}</Text>
     </Pressable>
   :
     <Pressable style={styles.addPersonalContact} onPress={() => {configurePersonalContact(navigation)}}>
       <Image style={styles.addpersonalContactImage} source={require('../assets/add_contact_icon.png')}/>
       <Text style={styles.personalContactText}>Adicionar</Text>
     </Pressable>
-    
 }
 
+// TODO: adicionar os alertas na classe de local storage?
 const HomeScreen  = ({navigation}) => {
+  const [personalContact, setPersonalContact] = useState(null)
+
+  useEffect(()=>{
+    getPersonalContact()
+      .then((contact)=> {
+        contact = JSON.parse(contact)
+        setPersonalContact(contact)
+      })
+      .catch((e) => {
+        console.log("Failure getting the personal contact: ", e)
+      })
+  }, [])
+
   return (
     <SafeAreaView style={{flex: 1}}>
         <View style={styles.homeScreenView}>
-          <CallPersonalContactButton navigation={navigation}/>
+          <CallPersonalContactButton navigation={navigation} personalContact={personalContact}/>
           <CallEmergencyButton title="Policia" number="190" navigation={navigation} />
           <CallEmergencyButton title="Ambulancia" number="192" navigation={navigation} />
           <CallEmergencyButton title="Bombeiro" number="193" navigation={navigation} />

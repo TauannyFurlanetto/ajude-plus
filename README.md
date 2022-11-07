@@ -25,6 +25,8 @@ A partir dai voce pode ou iniciar o app com o `Expo`  ou fazendo um build manual
 
 **expo**
 
+> AVISO: ao usar o expo o aplicativo e perder funcoes essenciais, sendo impossivel selecionar um contato pra ser adicionar no aplicativo
+
 1. Execute o comando `npx expo start` no terminal.
 2. Ou:
     - Inicie o emulador no AndroidStudio e espere o projeto iniciar e digite `a` para iniciar o app no emulador.
@@ -35,11 +37,13 @@ Caso voce decida usar o ExpoGo e nao consiga se conectar pelo app, desligue temp
 
 **manual**
 
-1. Numa aba do terminal, inicie o servidor
+1. Inicie o emulador no Android Studio
+
+2. Numa aba do terminal, inicie o servidor
 ```
 npx react-native start
 ```
-2. Em outra aba, faca um build na aplicacao
+3. Em outra aba, faca um build na aplicacao
 ```
 npx react-native run-android
 ```

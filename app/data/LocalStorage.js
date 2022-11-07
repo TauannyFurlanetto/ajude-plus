@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import configurePersonalContact from '../js/configurePersonalContact';
 
 // TODO: if we use a database, we will need to connect to it on startup, and disconnect to it
 // when shutting down
@@ -11,11 +10,21 @@ async function getPersonalContact () {
     return await AsyncStorage.getItem('personalContact');
 }
 
+async function hasPersonalContact () {
+    const contact = await getPersonalContact();
+
+    if (contact == null){
+        return false;
+    }
+    
+    return true
+}
+
 async function setPersonalContact (contact) {
     // TODO: this will be the method to update and add the contact, by thus it must always overwrite
     // the current contact in the dataStore
     // msg = this.personalContact == {} ?`adding contact: ${contact}` : `updating contact`
-    await AsyncStorage.setItem('personalContact', JSON.stringify({"value": contact}));
+    await AsyncStorage.setItem('personalContact', JSON.stringify(contact));
 }
 
 async function setFirstLaunch (value) {
@@ -49,4 +58,4 @@ async function clearDatabase () {
     await AsyncStorage.clear();
 }
 
-export {getPersonalContact, setPersonalContact, removePersonalContact,  getIsFirstLaunch, setFirstLaunch, clearDatabase};
+export {getPersonalContact, setPersonalContact, removePersonalContact, hasPersonalContact, getIsFirstLaunch, setFirstLaunch, clearDatabase};
