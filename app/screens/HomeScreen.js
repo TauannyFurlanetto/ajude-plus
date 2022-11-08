@@ -10,42 +10,12 @@ import ConfigureContactButton from '../components/ConfigureContactButton';
 import configurePersonalContact from '../js/configurePersonalContactService';
 import {default as Text} from '../components/UnscalableText';
 import { getPersonalContact } from '../js/data/localStorageService';
-
-const DEBUG_CALLS=true;
-const DEFAULT_NUMBER=100;
-
-// TODO: MAYBE refactor the components to other files
+import contactEmergency from '../js/contactEmergencyService';
 
 const emergencyButtonImage = {
   "190": require( "../assets/police_icon.png"),
   "192": require("../assets/ambulance_icon.png"),
   "193": require("../assets/fireman_icon.png")
-}
-
-const contactEmergency = (number, navigation) => {
-  console.log(`Contacting emergency ${number}`)
-  callEmergencyNumber(number)
-  sendMessageToPersonalContact()
-  navigation.navigate("messageSent")
-
-}
-
-const sendMessageToPersonalContact = () => {
-  var number = 100 //this will be the contacts number
-  
-  if (DEBUG_CALLS){
-    number = DEFAULT_NUMBER
-  }
-
-  console.log("Do I even have a personal contact set?")
-  console.log("Sending message to personal contact")
-}
-
-const callEmergencyNumber = (number) => {
-  if (DEBUG_CALLS){
-    number = DEFAULT_NUMBER
-  }
-  console.log(`Calling ${number}`)
 }
 
 const CallEmergencyButton = ({title, navigation, number}) => {

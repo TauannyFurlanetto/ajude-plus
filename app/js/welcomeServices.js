@@ -25,4 +25,4 @@ const askPhonePermission = async () => {
   return (phonePermission === PermissionsAndroid.RESULTS.GRANTED)
 }
 
-export default {askPhonePermission, alertAndCleanState}
+export {askPhonePermission, alertAndCleanState}

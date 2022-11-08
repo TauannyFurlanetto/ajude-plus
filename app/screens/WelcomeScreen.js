@@ -10,7 +10,7 @@ import styles from '../styles/welcomeScreenStyles';
 import {default as Text} from '../components/UnscalableText';
 import goToMainScreen from '../js/goToMainScreenService';
 import updateContact from '../js/updateContactService';
-import {alertAndCleanState, askPhonePermission} from '../js/welcomeScreenServices'
+import {alertAndCleanState, askPhonePermission} from '../js/welcomeServices'
 
 const addContactButtonStyle = (pressed) => {
   // console.log("setting button style")
