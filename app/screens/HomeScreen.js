@@ -11,6 +11,9 @@ import configurePersonalContact from '../js/configurePersonalContact';
 import {default as Text} from '../components/UnscalableText';
 import { getPersonalContact } from '../data/LocalStorage';
 
+const DEBUG_CALLS=true;
+const DEFAULT_NUMBER=100;
+
 // TODO: add the images
 // TODO: MAYBE refactor the components to other files
 
@@ -29,11 +32,20 @@ const contactEmergency = (number, navigation) => {
 }
 
 const sendMessageToPersonalContact = () => {
+  var number = 100 //this will be the contacts number
+  
+  if (DEBUG_CALLS){
+    number = DEFAULT_NUMBER
+  }
+
   console.log("Do I even have a personal contact set?")
   console.log("Sending message to personal contact")
 }
 
 const callEmergencyNumber = (number) => {
+  if (DEBUG_CALLS){
+    number = DEFAULT_NUMBER
+  }
   console.log(`Calling ${number}`)
 }
 

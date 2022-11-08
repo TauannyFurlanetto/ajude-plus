@@ -11,7 +11,9 @@ import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from './styles/navigatorStyles';
 import {  StatusBar } from 'react-native';
-import { getIsFirstLaunch } from './data/LocalStorage';
+import { clearDatabase, getIsFirstLaunch } from './data/LocalStorage';
+
+const CLEAR_DATABASE = true;
 
 const Stack = createStackNavigator();
 
@@ -30,6 +32,9 @@ const App  = () => {
   const [isFirstLauch, setIsFirstLaunch] = useState(true);
 
   useEffect(()=>{
+
+    if (CLEAR_DATABASE) clearDatabase()
+
     getIsFirstLaunch()
       .then((result) => {
         if (result == null) {

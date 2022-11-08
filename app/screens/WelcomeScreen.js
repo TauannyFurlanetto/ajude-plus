@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {
   Alert,
@@ -57,18 +57,48 @@ const goToMainScreen = (navigation) => {
 const addNewContact = async (navigation)  => {
   try{
     console.log("add new contact")
-    const permission = await PermissionsAndroid.request(
+    const contacts_permission = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
     )
 
-    if (permission === PermissionsAndroid.RESULTS.GRANTED) {
+    if (contacts_permission === PermissionsAndroid.RESULTS.GRANTED) {
         const contact = await selectContact();
         await setPersonalContact(contact)
+
+        const sms_permission = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.SEND_SMS,
+        )
+
+          if (sms_permission !== PermissionsAndroid.RESULTS.GRANTED){
+              Alert.alert(
+                "Proibido de mandar SMS",
+                "O aplicativo nao ira mandar mensagens em caso de emergencia, habilite a permissao manualmente nas configuracoes do aparelho",
+                [
+                  {
+                    "text": "Ok",
+                    onPress: () => {}
+                  }
+                ]
+              )
+          }
     
         goToMainScreen(navigation)
     }
     else{
-      goToMainScreen(navigation)
+      Alert.alert(
+        "Proibido de acessar os Contatos",
+        "O aplicativo nao consegue acessar os contatos, habilite a permissao manualmente nas configuracoes do aparelho",
+        [
+          {
+            "text": "Continuar",
+            onPress: () => {goToMainScreen(navigation)}
+          },
+          {
+            "text": "Sair",
+            onPress: () => BackHandler.exitApp()
+          }
+        ]
+      )
     }
   }
   catch (e) {
@@ -104,6 +134,29 @@ const AddContactLaterButton = ({navigation}) =>  <Pressable onPress={() => {goTo
 </Pressable>
 
 const WelcomeScreen = ({navigation}) => {
+  useEffect(() => {
+    PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+    )
+      .then((permission) => {
+        if (permission !== PermissionsAndroid.RESULTS.GRANTED){
+          setFirstLaunch("true")
+            .then(() => {
+              Alert.alert(
+                "Proibido de acessar o telefone",
+                "O aplicativo nao pode funcionar sem permissao ao telefone, habilite a permissao manualmente nas configuracoes do aparelho",
+                [
+                  {
+                    "text": "Sair",
+                    onPress: () => BackHandler.exitApp()
+                  }
+                ]
+              )
+            })
+        }
+      })
+  }, [])
+
   return (
     <SafeAreaView style={{flex: 1}}>
         <View style={styles.welcomeView}>
