@@ -7,9 +7,9 @@ import {
 import styles from '../styles/homeScreenStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ConfigureContactButton from '../components/ConfigureContactButton';
-import configurePersonalContact from '../js/configurePersonalContact';
+import configurePersonalContact from '../js/configurePersonalContactService';
 import {default as Text} from '../components/UnscalableText';
-import { getPersonalContact } from '../data/LocalStorage';
+import { getPersonalContact } from '../js/data/localStorageService';
 
 const DEBUG_CALLS=true;
 const DEFAULT_NUMBER=100;

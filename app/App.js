@@ -11,7 +11,7 @@ import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from './styles/navigatorStyles';
 import {  StatusBar } from 'react-native';
-import { clearDatabase, getIsFirstLaunch } from './data/LocalStorage';
+import { clearDatabase, getIsFirstLaunch } from './js/data/localStorageService';
 
 const CLEAR_DATABASE = true;
 

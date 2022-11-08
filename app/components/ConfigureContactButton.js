@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 
 import styles from "../styles/configureContactButtonStyles"
-import configurePersonalContact from "../js/configurePersonalContact"
+import configurePersonalContact from "../js/configurePersonalContactService"
 
 const ConfigureContactButton = ({navigation}) => {
     return <Pressable style={styles.configureContactButton} onPress={() => {configurePersonalContact(navigation)}}>
