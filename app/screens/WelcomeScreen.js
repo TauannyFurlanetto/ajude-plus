@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import {
-  PermissionsAndroid,
   Pressable,
   View
 } from 'react-native';
