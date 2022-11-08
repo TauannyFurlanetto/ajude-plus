@@ -19,8 +19,6 @@ const emergencyButtonImage = {
 }
 
 const CallEmergencyButton = ({title, navigation, number}) => {
-  console.log(title)
- 
   return <Pressable style={styles.callEmergencyButton} onPress={() => {contactEmergency(number, navigation)}}>
     <Image style={styles.callEmergencyImage} source={emergencyButtonImage[number]}/>
     <Text style={styles.callButtonText}>{`${title}`}</Text>
