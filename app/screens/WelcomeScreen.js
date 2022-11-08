@@ -13,7 +13,6 @@ import updateContact from '../js/updateContactService';
 import {alertAndCleanState, askPhonePermission} from '../js/welcomeServices'
 
 const addContactButtonStyle = (pressed) => {
-  // console.log("setting button style")
   return pressed ? styles.addContactButtonPressed : styles.addContactButton
 }
 
@@ -32,6 +31,9 @@ const WelcomeScreen = ({navigation}) => {
         if(!allowed){
           alertAndCleanState()
         }
+      })
+      .catch((e) => {
+        console.log("Error while asking access to Phone: ", e)
       })
   }, [])
 

@@ -40,7 +40,7 @@ const App  = () => {
         result?.value ? setIsFirstLaunch(result.value)  : setIsFirstLaunch(true)
       })
       .catch ((e) => (
-        console.log("Failed to fetch from database: ", e)
+        console.log("Failed to fetch from storage: ", e)
       ))
   }, [])
 

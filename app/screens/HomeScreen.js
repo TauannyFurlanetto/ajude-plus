@@ -38,7 +38,6 @@ const CallPersonalContactButton = ({navigation, personalContact}) => {
     </Pressable>
 }
 
-// TODO: adicionar os alertas na classe de local storage?
 const HomeScreen  = ({navigation}) => {
   const [personalContact, setPersonalContact] = useState(null)
 

@@ -11,6 +11,7 @@ const sendMessageToPersonalContact = () => {
     console.log("Do I even have a personal contact set?")
     console.log("Sending message to personal contact")
 }
+
 const callEmergencyNumber = (number) => {
     if (DEBUG_CALLS){
         number = DEFAULT_NUMBER
