@@ -37,11 +37,7 @@ const App  = () => {
 
     getIsFirstLaunch()
       .then((result) => {
-        if (result == null) {
-          setIsFirstLaunch(true);
-        } else if (result === false){
-          setIsFirstLaunch(false);
-        }
+        result?.value ? setIsFirstLaunch(result.value)  : setIsFirstLaunch(true)
       })
       .catch ((e) => (
         console.log("Failed to fetch from database: ", e)

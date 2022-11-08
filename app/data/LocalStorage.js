@@ -7,7 +7,9 @@ async function getPersonalContact () {
     // TODO: go in the database to get it the first time
     // after that you just cache the value (idk), ideally shouldn't be requesting
     // the contact every time
-    return await AsyncStorage.getItem('personalContact');
+    const contact =  await AsyncStorage.getItem('personalContact');
+
+    return JSON.parse(contact)
 }
 
 async function hasPersonalContact () {
@@ -32,20 +34,11 @@ async function setFirstLaunch (value) {
 }
 
 async function getIsFirstLaunch () {
-    const result = await AsyncStorage.getItem('firstLaunch');
+    const isFirstLaunch = await AsyncStorage.getItem('firstLaunch');
 
     // TODO: verify how to store the item in a way that you dont need to treat it in
     // a switch statement
-
-    switch (result) {
-        case JSON.stringify({"value": "false"}):
-            return false
-        case JSON.stringify({"value": "true"}):
-            return true
-        default:
-            return null
-
-    }
+    return JSON.parse(isFirstLaunch)
 }
 
 async function removePersonalContact () {

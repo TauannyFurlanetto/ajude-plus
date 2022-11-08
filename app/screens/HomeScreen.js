@@ -14,7 +14,6 @@ import { getPersonalContact } from '../data/LocalStorage';
 const DEBUG_CALLS=true;
 const DEFAULT_NUMBER=100;
 
-// TODO: add the images
 // TODO: MAYBE refactor the components to other files
 
 const emergencyButtonImage = {
@@ -78,8 +77,7 @@ const HomeScreen  = ({navigation}) => {
   useEffect(()=>{
     getPersonalContact()
       .then((contact)=> {
-        contact = JSON.parse(contact)
-        setPersonalContact(contact)
+        contact ? setPersonalContact(contact) : null
       })
       .catch((e) => {
         console.log("Failure getting the personal contact: ", e)
