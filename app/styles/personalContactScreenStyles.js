@@ -20,7 +20,9 @@ export default StyleSheet.create({
         borderColor: colors.light,
         borderRadius: 20,
         borderWidth: 1,
-        marginBottom: 10
+        marginBottom: 10,
+        textOverflow: 'ellipsis',
+        overflow:'hidden'
     },
     contactCardText: {
         fontSize: mediumTextSize,
