@@ -5,8 +5,6 @@ import goToMainScreen from './goToMainScreenService';
 
 async function selectContact () {
   try{
-    console.log("lets select the contact my dudes")
-
     const selection = await selectContactPhone();
 
     if (!selection) {
@@ -14,6 +12,11 @@ async function selectContact () {
     }
             
     let { contact, selectedPhone } = selection;
+
+    if(!contact?.name || !selectedPhone?.number){
+      return null
+    }
+
     return {
       "name": contact.name,
       "number": selectedPhone.number
@@ -62,10 +65,13 @@ export default updateContact = async (props)  => {
  
       if (contacts_permission === PermissionsAndroid.RESULTS.GRANTED) {
           const contact = await selectContact();
-          await setPersonalContact(contact)
-          await askSMSPermission()
-          if (setState) setState(contact)
-          if (navigation) goToMainScreen(navigation)
+
+          if(contact){
+            await setPersonalContact(contact)
+            await askSMSPermission()
+            if (setState) setState(contact)
+            if (navigation) goToMainScreen(navigation)
+          }
       }
       else{
         if (navigation) Alert.alert(
