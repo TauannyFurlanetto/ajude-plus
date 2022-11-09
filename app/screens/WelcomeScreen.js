@@ -16,7 +16,7 @@ const addContactButtonStyle = (pressed) => {
   return pressed ? styles.addContactButtonPressed : styles.addContactButton
 }
 
-const AddContactButton = ({navigation}) => <Pressable onPress={() => {updateContact(navigation)}} style={ ({pressed}) => addContactButtonStyle(pressed)}>
+const AddContactButton = ({navigation}) => <Pressable onPress={() => {updateContact({navigation})}} style={ ({pressed}) => addContactButtonStyle(pressed)}>
       <Text style={styles.addContactText}>Adicionar contato de emergencia</Text>
     </Pressable>
 

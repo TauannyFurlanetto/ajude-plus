@@ -51,7 +51,10 @@ const askSMSPermission = async () => {
   }
 }
 
-export default updateContact = async (navigation)  => {
+export default updateContact = async (props)  => {
+    var navigation = props.navigation
+    var setState = props.setState
+
     try{
       const contacts_permission = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
@@ -61,7 +64,8 @@ export default updateContact = async (navigation)  => {
           const contact = await selectContact();
           await setPersonalContact(contact)
           await askSMSPermission()
-          goToMainScreen(navigation)
+          if (setState) setState(contact)
+          if (navigation) goToMainScreen(navigation)
       }
       else{
         Alert.alert(
@@ -71,7 +75,7 @@ export default updateContact = async (navigation)  => {
           [
             {
               "text": "Continuar",
-              onPress: () => {goToMainScreen(navigation)}
+              onPress: () => {navigation ? goToMainScreen(navigation): null}
             },
             {
               "text": "Sair",
@@ -89,7 +93,7 @@ export default updateContact = async (navigation)  => {
         [
           {
             "text": "Continuar",
-            onPress: () => goToMainScreen(navigation)
+            onPress: () =>  {navigation ? goToMainScreen(navigation): null}
           },
           {
             "text": "Sair",

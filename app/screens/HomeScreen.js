@@ -42,13 +42,18 @@ const HomeScreen  = ({navigation}) => {
   const [personalContact, setPersonalContact] = useState(null)
 
   useEffect(()=>{
-    getPersonalContact()
-      .then((contact)=> {
-        contact ? setPersonalContact(contact) : null
-      })
-      .catch((e) => {
-        console.log("Failure getting the personal contact: ", e)
-      })
+    navigation.addListener(
+      'focus',
+      () => {
+        getPersonalContact()
+        .then((contact)=> {
+          setPersonalContact(contact)
+        })
+        .catch((e) => {
+          console.log("Failure getting the personal contact: ", e)
+        })
+      }
+    )
   }, [])
 
   return (
