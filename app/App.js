@@ -11,9 +11,9 @@ import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from './styles/navigatorStyles';
 import {  StatusBar } from 'react-native';
-import { clearDatabase, getIsFirstLaunch } from './js/data/localStorageService';
+import { clearDatabase, getIsFirstLaunch, setFirstLaunch } from './js/data/localStorageService';
 
-const CLEAR_DATABASE = true;
+const CLEAR_DATABASE = false;
 
 const Stack = createStackNavigator();
 
@@ -33,11 +33,12 @@ const App  = () => {
 
   useEffect(()=>{
 
-    if (CLEAR_DATABASE) clearDatabase()
+    if (CLEAR_DATABASE) clearDatabase();
 
     getIsFirstLaunch()
       .then((result) => {
-        result?.value ? setIsFirstLaunch(result.value)  : setIsFirstLaunch(true)
+        result?.value === "false" ? setIsFirstLaunch(false) : setIsFirstLaunch(true)
+        setFirstLaunch("false")
       })
       .catch ((e) => (
         console.log("Failed to fetch from storage: ", e)
