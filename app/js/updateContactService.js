@@ -68,14 +68,14 @@ export default updateContact = async (props)  => {
           if (navigation) goToMainScreen(navigation)
       }
       else{
-        Alert.alert(
+        if (navigation) Alert.alert(
           "Proibido de acessar os Contatos",
           "O aplicativo nao consegue acessar os contatos, " + 
           "habilite a permissao manualmente nas configuracoes do aparelho",
           [
             {
               "text": "Continuar",
-              onPress: () => {navigation ? goToMainScreen(navigation): null}
+              onPress: () => {goToMainScreen(navigation)}
             },
             {
               "text": "Sair",
