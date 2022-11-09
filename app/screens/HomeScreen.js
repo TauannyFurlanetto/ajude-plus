@@ -11,6 +11,7 @@ import configurePersonalContact from '../js/configurePersonalContactService';
 import {default as Text} from '../components/UnscalableText';
 import { getPersonalContact } from '../js/data/localStorageService';
 import contactEmergency from '../js/contactEmergencyService';
+import truncateContactName from '../js/truncateContactNameService';
 
 const emergencyButtonImage = {
   "190": require( "../assets/police_icon.png"),
@@ -29,7 +30,7 @@ const CallPersonalContactButton = ({navigation, personalContact}) => {
   return personalContact ?
     <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(personalContact.number, navigation)}}>
       <Image style={styles.callPersonalContactImage} source={require('../assets/phone_icon.png')}/>
-      <Text style={styles.personalContactText}>{personalContact.name}</Text>
+      <Text style={styles.personalContactText}>{truncateContactName(personalContact.name, 9)}</Text>
     </Pressable>
   :
     <Pressable style={styles.addPersonalContact} onPress={() => {configurePersonalContact(navigation)}}>

@@ -20,19 +20,18 @@ export default StyleSheet.create({
     gap: 10,
   },
   callPersonalContact: {
-    paddingHorizontal: 40,
-    paddingVertical: 13,
+    padding: 13,
     borderColor: colors.yellow,
     borderWidth: 5,
     borderRadius: 100,
-    backgroundColor: colors.blac,
+    backgroundColor: colors.black,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden'
   },
   addPersonalContact: {
-    paddingHorizontal: 30,
-    paddingVertical: 13,
+    padding: 13,
     borderColor: colors.yellow,
     borderWidth: 5,
     borderRadius: 100,
@@ -40,7 +39,6 @@ export default StyleSheet.create({
     backgroundColor: colors.black,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
   },
   personalContactText: {
     position: 'relative',
@@ -49,7 +47,9 @@ export default StyleSheet.create({
     color: colors.light,
     fontSize: largeTextSize + 5,
     fontWeight: 'bold',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    marginRight: 'auto',
+    overflow: 'hidden'
   },
   callButtonText: {
     position: 'relative',
@@ -69,11 +69,13 @@ export default StyleSheet.create({
   callPersonalContactImage: {
     width: 40,
     height: 40,
-    marginRight: 20
+    marginRight: 40,
+    marginLeft: 20
   },
   addpersonalContactImage: {
     width: 48,
     height: 48,
-    marginRight: 12
+    marginRight: 30,
+    marginLeft: 20
   }
 });

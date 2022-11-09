@@ -9,8 +9,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {default as Text} from '../components/UnscalableText';
 import { getPersonalContact } from '../js/data/localStorageService';
 import removeContact from '../js/removeContactService';
-
 import updateContact from '../js/updateContactService'
+import truncateContactName from '../js/truncateContactNameService';
 
 const UpdateContactButton = ({setState}) => <Pressable style={styles.updateContactButton} onPress={() => {updateContact({setState})}}>
   <Text style={styles.updateContactText}>
@@ -25,7 +25,7 @@ const RemoveContactButton = ({setPersonalContact}) =>  <Pressable style={styles.
 const ContactCardText = ({personalContact}) => {
   return(
   <View style={styles.contactCardTextView}>
-    <Text style={styles.contactCardText}>Nome: <Text style={styles.contactCardTextHighlight}>{personalContact.name}</Text></Text>
+    <Text style={styles.contactCardText}>Nome: <Text style={styles.contactCardTextHighlight}>{truncateContactName(personalContact.name, 16)}</Text></Text>
     <Text style={styles.contactCardText}>Numero: <Text style={styles.contactCardTextHighlight}>{personalContact.number}</Text></Text>
   </View>
   )
