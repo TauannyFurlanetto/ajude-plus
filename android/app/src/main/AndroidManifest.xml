@@ -26,6 +26,10 @@
         <category android:name="android.intent.category.DEFAULT" />
         <data android:mimeType="vnd.android.cursor.dir/contact" />
     </intent>
+    <intent>
+        <action android:name="android.intent.action.SENDTO" />
+        <data android:scheme="smsto"/>
+    </intent>
   </queries>
 
 </manifest>
