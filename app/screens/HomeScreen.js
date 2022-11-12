@@ -19,16 +19,16 @@ const emergencyButtonImage = {
   "193": require("../assets/fireman_icon.png")
 }
 
-const CallEmergencyButton = ({title, navigation, number}) => {
-  return <Pressable style={styles.callEmergencyButton} onPress={() => {contactEmergency(number, navigation)}}>
+const CallEmergencyButton = ({title, navigation, number, personalContactNumber}) => {
+  return <Pressable style={styles.callEmergencyButton} onPress={() => {contactEmergency(number, personalContactNumber, navigation)}}>
     <Image style={styles.callEmergencyImage} source={emergencyButtonImage[number]}/>
     <Text style={styles.callButtonText}>{`${title}`}</Text>
   </Pressable>
 }
 
-const CallPersonalContactButton = ({navigation, personalContact}) => {
+const CallPersonalContactButton = ({navigation, personalContact, personalContactNumber}) => {
   return personalContact ?
-    <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(personalContact.number, navigation)}}>
+    <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(personalContact.number, personalContactNumber, navigation)}}>
       <Image style={styles.callPersonalContactImage} source={require('../assets/phone_icon.png')}/>
       <Text style={styles.personalContactText}>{truncateContactName(personalContact.name, 9)}</Text>
     </Pressable>
@@ -60,10 +60,10 @@ const HomeScreen  = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
         <View style={styles.homeScreenView}>
-          <CallPersonalContactButton navigation={navigation} personalContact={personalContact}/>
-          <CallEmergencyButton title="Policia" number="190" navigation={navigation} />
-          <CallEmergencyButton title="Ambulancia" number="192" navigation={navigation} />
-          <CallEmergencyButton title="Bombeiro" number="193" navigation={navigation} />
+          <CallPersonalContactButton navigation={navigation} personalContact={personalContact} personalContactNumber={personalContact?.number}/>
+          <CallEmergencyButton title="Policia" number="190" navigation={navigation} personalContactNumber={personalContact?.number}/>
+          <CallEmergencyButton title="Ambulancia" number="192" navigation={navigation} personalContactNumber={personalContact?.number}/>
+          <CallEmergencyButton title="Bombeiro" number="193" navigation={navigation} personalContactNumber={personalContact?.number}/>
           <ConfigureContactButton navigation={navigation} />
         </View>
     </SafeAreaView>
