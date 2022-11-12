@@ -1,5 +1,7 @@
-import { Alert } from 'react-native';
+import { Alert, NativeModules } from 'react-native';
 import SendIntentAndroid from 'react-native-send-intent';
+
+var DirectSms = NativeModules.DirectSms
 
 const DEBUG_CALLS=true;
 const DEFAULT_NUMBER="+55 11 111";
@@ -10,9 +12,7 @@ const sendMessageToPersonalContact = (personalContactNumber) => {
         personalContactNumber = DEFAULT_NUMBER
     }
 
-    SendIntentAndroid.sendSms(personalContactNumber, "Uma ligacao a emergencia foi efetuada");
-    console.log("Do I even have a personal contact set?")
-    console.log("Sending message to personal contact")
+    DirectSms.sendDirectSms(personalContactNumber, "Uma ligacao a emergencia foi efetuada");
 }
 
 const callEmergencyNumber = (number) => {
