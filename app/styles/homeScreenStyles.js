@@ -69,13 +69,13 @@ export default StyleSheet.create({
   callPersonalContactImage: {
     width: 40,
     height: 40,
-    marginRight: 40,
+    marginRight: 35,
     marginLeft: 20
   },
   addpersonalContactImage: {
     width: 48,
     height: 48,
-    marginRight: 30,
+    marginRight: 25,
     marginLeft: 20
   }
 });

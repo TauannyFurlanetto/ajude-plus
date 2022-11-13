@@ -11,7 +11,8 @@ import configurePersonalContact from '../js/configurePersonalContactService';
 import {default as Text} from '../components/UnscalableText';
 import { getPersonalContact } from '../js/data/localStorageService';
 import contactEmergency from '../js/contactEmergencyService';
-import truncateContactName from '../js/truncateContactNameService';
+import truncateText from '../js/truncateTextService';
+import { alertPhoneNotAllowed, askPhonePermission } from '../js/phonePermissionServices';
 
 const emergencyButtonImage = {
   "190": require( "../assets/police_icon.png"),
@@ -30,7 +31,7 @@ const CallPersonalContactButton = ({navigation, personalContact, personalContact
   return personalContact ?
     <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(personalContact.number, personalContactNumber, navigation)}}>
       <Image style={styles.callPersonalContactImage} source={require('../assets/phone_icon.png')}/>
-      <Text style={styles.personalContactText}>{truncateContactName(personalContact.name, 9)}</Text>
+      <Text style={styles.personalContactText}>{truncateText(personalContact.name, 9)}</Text>
     </Pressable>
   :
     <Pressable style={styles.addPersonalContact} onPress={() => {configurePersonalContact(navigation)}}>
@@ -55,6 +56,14 @@ const HomeScreen  = ({navigation}) => {
         })
       }
     )
+
+    askPhonePermission()
+    .then((allowed) => {
+      if(!allowed){
+        alertPhoneNotAllowed();
+      }
+    })
+
   }, [])
 
   return (

@@ -17,7 +17,7 @@ const MessageSentScreen  = ({navigation}) => {
             </View>
             <Text style={styles.messageText}>Mensagem foi enviada para contato de emergencia</Text>
           </View>
-          <ConfigureContactButton navigation={navigation} />
+          <ConfigureContactButton navigation={navigation} replace={true}/>
         </View>
     </SafeAreaView>
   );

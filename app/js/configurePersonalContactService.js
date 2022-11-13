@@ -1,7 +1,8 @@
-export default configurePersonalContact = (navigation) => {
+export default configurePersonalContact = (navigation, replace) => {
     console.log("Ir para a tela de configuracao de contato")
+    if(replace){
+        navigation.replace("personalContact")
+    }
+    
     navigation.navigate("personalContact")
-    // TODO: quando a outra tela for chamada, imediatamente checar se ter permissao, se nao pedir,
-    // se sim continuar
-    // se negado, voltar pra essa tela
 }

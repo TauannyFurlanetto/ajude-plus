@@ -1,4 +1,4 @@
-export default truncateContactName = (name, length) => {
+export default truncateText = (name, length) => {
     try{
         if (name.length > length){
             return name.substring(0, length - 1) + '...'

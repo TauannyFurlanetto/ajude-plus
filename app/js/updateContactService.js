@@ -19,7 +19,7 @@ async function selectContact () {
 
     return {
       "name": contact.name,
-      "number": selectedPhone.number
+      "number": selectedPhone.number.toString()
     }
   }
   catch (e){
@@ -74,14 +74,14 @@ export default updateContact = async (props)  => {
           }
       }
       else{
-        if (navigation) Alert.alert(
+        Alert.alert(
           "Proibido de acessar os Contatos",
           "O aplicativo nao consegue acessar os contatos, " + 
           "habilite a permissao manualmente nas configuracoes do aparelho",
           [
             {
-              "text": "Continuar",
-              onPress: () => {goToMainScreen(navigation)}
+              "text": "Ok",
+              onPress: () => { navigation ? goToMainScreen(navigation) : () => {}}
             },
             {
               "text": "Sair",

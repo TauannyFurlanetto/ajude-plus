@@ -1,9 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 async function getPersonalContact () {
-    // TODO: go in the database to get it the first time
-    // after that you just cache the value (idk), ideally shouldn't be requesting
-    // the contact every time
     const contact =  await AsyncStorage.getItem('personalContact');
 
     return JSON.parse(contact)

@@ -10,7 +10,11 @@ import styles from '../styles/welcomeScreenStyles';
 import {default as Text} from '../components/UnscalableText';
 import goToMainScreen from '../js/goToMainScreenService';
 import updateContact from '../js/updateContactService';
-import {alertAndCleanState, askPhonePermission} from '../js/welcomeServices'
+import {
+  alertPhoneNotAllowed,
+  askPhonePermission,
+  clearIsFirstLaunch
+} from '../js/phonePermissionServices'
 
 const addContactButtonStyle = (pressed) => {
   return pressed ? styles.addContactButtonPressed : styles.addContactButton
@@ -29,7 +33,8 @@ const WelcomeScreen = ({navigation}) => {
     askPhonePermission()
       .then((allowed) => {
         if(!allowed){
-          alertAndCleanState()
+          alertPhoneNotAllowed()
+          clearIsFirstLaunch()
         }
       })
       .catch((e) => {
