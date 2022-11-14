@@ -7,7 +7,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.uimanager.IllegalViewOperationException;
 import android.telephony.SmsManager;
 
- 
+// https://medium.com/@fatemefazli.bv/sending-direct-sms-in-react-native-android-d902d6bf1f04
 public class DirectSmsModule extends ReactContextBaseJavaModule {
  
     public DirectSmsModule(ReactApplicationContext reactContext) {

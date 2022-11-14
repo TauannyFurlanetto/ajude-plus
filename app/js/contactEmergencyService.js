@@ -35,9 +35,6 @@ const sideEffects = (navigation, personalContactNumber) => {
 }
 
 export default contactEmergency = (number, personalContactNumber, navigation) => {
-    console.log(`Contacting emergency ${number}`)
-    console.log(`Sendint a message to ${personalContactNumber}`)
-
     try{
         callEmergencyNumber(number)
         sideEffects(navigation, personalContactNumber)
