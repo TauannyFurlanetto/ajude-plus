@@ -1,26 +1,23 @@
 import { Alert, NativeModules } from 'react-native';
 import SendIntentAndroid from 'react-native-send-intent';
 
+import { DEVELOPMENT_NUMBER, DEVELOPMENT_CALLS } from '../config';
+
 var DirectSms = NativeModules.DirectSms
 
-const DEBUG_CALLS=true;
-const DEFAULT_NUMBER="+55 11 111";
-
 const sendMessageToPersonalContact = (personalContactNumber) => {
-    if (DEBUG_CALLS){
-        console.log("The debug mode is active, calling a default number")
-        personalContactNumber = DEFAULT_NUMBER
+    if (DEVELOPMENT_CALLS){
+        personalContactNumber = DEVELOPMENT_NUMBER
     }
 
     DirectSms.sendDirectSms(personalContactNumber, "Uma ligacao a emergencia foi efetuada");
 }
 
 const callEmergencyNumber = (number) => {
-    if (DEBUG_CALLS){
-        number = DEFAULT_NUMBER
+    if (DEVELOPMENT_CALLS){
+        console.log("The debug mode is active, calling a default number")
+        number = DEVELOPMENT_NUMBER
     }
-    console.log(`Calling ${number}`)
-
     SendIntentAndroid.sendPhoneCall(number, true)
 }
 

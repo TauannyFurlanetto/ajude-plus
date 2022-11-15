@@ -1,4 +1,4 @@
-export default configurePersonalContact = (navigation, replace) => {
+export default goToPersonalContactScreen = (navigation, replace) => {
     if(replace){
         navigation.replace("personalContact")
     }

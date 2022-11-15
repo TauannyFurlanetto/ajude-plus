@@ -1,5 +1,4 @@
 import { Alert, BackHandler, PermissionsAndroid } from 'react-native';
-import { setFirstLaunch } from './data/localStorageService';
 
 const alertPhoneNotAllowed = () => {
   Alert.alert(
@@ -15,13 +14,7 @@ const alertPhoneNotAllowed = () => {
   )
 }
 
-const clearIsFirstLaunch = async (cleanState) => {
-  if(cleanState){
-    await setFirstLaunch("true")
-  }
-}
-
-const askPhonePermission = async () => {
+const canAccessPhone = async () => {
   const phonePermission = await PermissionsAndroid.request(
     PermissionsAndroid.PERMISSIONS.CALL_PHONE
   )
@@ -29,4 +22,4 @@ const askPhonePermission = async () => {
   return (phonePermission === PermissionsAndroid.RESULTS.GRANTED)
 }
 
-export {askPhonePermission, alertPhoneNotAllowed, clearIsFirstLaunch}
+export { canAccessPhone, alertPhoneNotAllowed }

@@ -1,9 +1,10 @@
 import { Alert, PermissionsAndroid, BackHandler } from 'react-native';
-import { setPersonalContact } from './data/localStorageService';
 import { selectContactPhone } from 'react-native-select-contact';
-import goToMainScreen from './goToMainScreenService';
 
-async function selectContact () {
+import goToMainScreen from './goToMainScreenService';
+import { setPersonalContact } from '../data/localStorageService';
+
+const selectContact = async () => {
   try{
     const selection = await selectContactPhone();
 
@@ -68,8 +69,8 @@ export default updateContact = async (props)  => {
 
           if(contact){
             await setPersonalContact(contact)
-            await askSMSPermission()
             if (setState) setState(contact)
+            await askSMSPermission()
             if (navigation) goToMainScreen(navigation)
           }
       }

@@ -1,20 +1,13 @@
 import React, { useEffect } from 'react';
-
-import {
-  Pressable,
-  View
-} from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import styles from '../styles/welcomeScreenStyles';
-import {default as Text} from '../components/UnscalableText';
-import goToMainScreen from '../js/goToMainScreenService';
-import updateContact from '../js/updateContactService';
-import {
-  alertPhoneNotAllowed,
-  askPhonePermission,
-  clearIsFirstLaunch
-} from '../js/phonePermissionServices'
+import { default as Text } from '../components/UnscalableText';
+import goToMainScreen from '../js/services/goToMainScreenService';
+import updateContact from '../js/services/updateContactService';
+import { setStoredFirstLaunch } from '../js/data/localStorageService';
+import { alertPhoneNotAllowed, canAccessPhone } from '../js/services/phonePermissionServices'
 
 const addContactButtonStyle = (pressed) => {
   return pressed ? styles.addContactButtonPressed : styles.addContactButton
@@ -30,11 +23,11 @@ const AddContactLaterButton = ({navigation}) =>  <Pressable onPress={() => {goTo
 
 const WelcomeScreen = ({navigation}) => {
   useEffect(() => {
-    askPhonePermission()
+    canAccessPhone()
       .then((allowed) => {
         if(!allowed){
           alertPhoneNotAllowed()
-          clearIsFirstLaunch()
+          setStoredFirstLaunch("true")
         }
       })
       .catch((e) => {

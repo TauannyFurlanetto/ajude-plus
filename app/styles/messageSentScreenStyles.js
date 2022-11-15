@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from './colors';
-import {defaultMargin, mediumTextSize, largeTextSize} from './styles';
+import { defaultMargin, mediumTextSize, largeTextSize } from './styles';
 
 export default StyleSheet.create({
     messageSentView: {
@@ -10,14 +10,14 @@ export default StyleSheet.create({
         marginHorizontal: defaultMargin,
         marginVertical: defaultMargin + 10
     },
-    messageSentTextView: {
+    messageSentMessageView: {
         width: '100%'
     },
     messageCardView: {
         width: '100%',
         marginBottom: defaultMargin * 8
     },
-    messageCardTextView: {
+    messageCardHeroView: {
         backgroundColor: colors.light,
         padding: 30,
         borderColor: colors.light,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
         borderWidth: 1,
         marginBottom: 30,
     },
-    messageCardText: {
+    messageCardHeroText: {
         fontSize: largeTextSize + 15,
         color: colors.dark,
         textTransform: 'uppercase',

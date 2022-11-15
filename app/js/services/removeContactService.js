@@ -1,10 +1,11 @@
 import { Alert } from 'react-native';
-import { removePersonalContact } from '../js/data/localStorageService';
+
+import { removePersonalContact } from '../data/localStorageService';
 
 export default removeContact = async(setPersonalContact) => {
     removePersonalContact()
       .then(() => {
-        setPersonalContact({
+        if(setPersonalContact) setPersonalContact({
           "name": '...',
           "number": '...'
         })

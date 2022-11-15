@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import { defaultMargin } from './styles';
-
 
 export default StyleSheet.create({
     configureContactButton: {

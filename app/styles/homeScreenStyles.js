@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from './colors';
-import {defaultMargin, largeTextSize} from './styles';
+import { defaultMargin, largeTextSize } from './styles';
 
 export default StyleSheet.create({
   homeScreenView: {
@@ -51,7 +51,7 @@ export default StyleSheet.create({
     marginRight: 'auto',
     overflow: 'hidden'
   },
-  callButtonText: {
+  callEmergencyButtonText: {
     position: 'relative',
     top: 0,
     left: 0,
@@ -72,7 +72,7 @@ export default StyleSheet.create({
     marginRight: 35,
     marginLeft: 20
   },
-  addpersonalContactImage: {
+  addPersonalContactImage: {
     width: 48,
     height: 48,
     marginRight: 25,

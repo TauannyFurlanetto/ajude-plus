@@ -1,12 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-async function getPersonalContact () {
+const getPersonalContact = async () => {
     const contact =  await AsyncStorage.getItem('personalContact');
 
     return JSON.parse(contact)
 }
 
-async function hasPersonalContact () {
+const hasPersonalContact =  async () => {
     const contact = await getPersonalContact();
 
     if (contact == null){
@@ -16,26 +16,26 @@ async function hasPersonalContact () {
     return true
 }
 
-async function setPersonalContact (contact) {
+const setPersonalContact = async (contact) => {
     await AsyncStorage.setItem('personalContact', JSON.stringify(contact));
 }
 
-async function setFirstLaunch (value) {
+const setStoredFirstLaunch  = async (value) => {
     await AsyncStorage.setItem('firstLaunch', JSON.stringify({"value": value}));
 }
 
-async function getIsFirstLaunch () {
+const getIsFirstLaunch  = async () => {
     const isFirstLaunch = await AsyncStorage.getItem('firstLaunch');
 
     return JSON.parse(isFirstLaunch)
 }
 
-async function removePersonalContact () {
+const removePersonalContact = async () => {
     return await AsyncStorage.removeItem('personalContact');
 }
 
-async function clearDatabase () {
+const clearDatabase = async () => {
     await AsyncStorage.clear();
 }
 
-export {getPersonalContact, setPersonalContact, removePersonalContact, hasPersonalContact, getIsFirstLaunch, setFirstLaunch, clearDatabase};
+export { getPersonalContact, setPersonalContact, removePersonalContact, hasPersonalContact, getIsFirstLaunch, setStoredFirstLaunch, clearDatabase };

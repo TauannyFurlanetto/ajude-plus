@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Image,
-  Pressable,
-  View
-} from 'react-native';
-import styles from '../styles/homeScreenStyles';
+import { Image,  Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import ConfigureContactButton from '../components/ConfigureContactButton';
-import configurePersonalContact from '../js/configurePersonalContactService';
-import {default as Text} from '../components/UnscalableText';
-import { getPersonalContact } from '../js/data/localStorageService';
-import contactEmergency from '../js/contactEmergencyService';
-import truncateText from '../js/truncateTextService';
-import { alertPhoneNotAllowed, askPhonePermission } from '../js/phonePermissionServices';
 
-const emergencyButtonImage = {
+import styles from '../styles/homeScreenStyles';
+import ConfigureContactButton from '../components/ConfigureContactButton';
+import { default as Text } from '../components/UnscalableText';
+import goToPersonalContactScreen from '../js/services/goToPersonalContactScreenService';
+import { getPersonalContact } from '../js/data/localStorageService';
+import contactEmergency from '../js/services/contactEmergencyService';
+import truncateText from '../js/services/truncateTextService';
+import { alertPhoneNotAllowed, canAccessPhone } from '../js/services/phonePermissionServices';
+
+const EMERGENCY_BUTTON_IMAGE = {
   "190": require( "../assets/police_icon.png"),
   "192": require("../assets/ambulance_icon.png"),
   "193": require("../assets/fireman_icon.png")
@@ -22,20 +19,28 @@ const emergencyButtonImage = {
 
 const CallEmergencyButton = ({title, navigation, number, personalContactNumber}) => {
   return <Pressable style={styles.callEmergencyButton} onPress={() => {contactEmergency(number, personalContactNumber, navigation)}}>
-    <Image style={styles.callEmergencyImage} source={emergencyButtonImage[number]}/>
-    <Text style={styles.callButtonText}>{`${title}`}</Text>
+    <Image style={styles.callEmergencyImage} source={EMERGENCY_BUTTON_IMAGE[number]}/>
+    <Text style={styles.callEmergencyButtonText}>{`${title}`}</Text>
   </Pressable>
 }
 
 const CallPersonalContactButton = ({navigation, personalContact, personalContactNumber}) => {
   return personalContact ?
-    <Pressable style={styles.callPersonalContact} onPress={() => {contactEmergency(personalContact.number, personalContactNumber, navigation)}}>
+    <Pressable style={styles.callPersonalContact} onPress={
+      () => {
+        contactEmergency(
+          personalContact.number,
+          personalContactNumber,
+          navigation
+        )
+      }
+    }>
       <Image style={styles.callPersonalContactImage} source={require('../assets/phone_icon.png')}/>
-      <Text style={styles.personalContactText}>{truncateText(personalContact.name, 9)}</Text>
+      <Text style={styles.personalContactText}>{truncateText(personalContact.name, 8)}</Text>
     </Pressable>
   :
-    <Pressable style={styles.addPersonalContact} onPress={() => {configurePersonalContact(navigation)}}>
-      <Image style={styles.addpersonalContactImage} source={require('../assets/add_contact_icon.png')}/>
+    <Pressable style={styles.addPersonalContact} onPress={() => {goToPersonalContactScreen(navigation)}}>
+      <Image style={styles.addPersonalContactImage} source={require('../assets/add_contact_icon.png')}/>
       <Text style={styles.personalContactText}>Adicionar</Text>
     </Pressable>
 }
@@ -45,7 +50,7 @@ const HomeScreen  = ({navigation}) => {
 
   useEffect(()=>{
     navigation.addListener(
-      'focus',
+      'focus', // this updates the state every time the page is navigated to
       () => {
         getPersonalContact()
         .then((contact)=> {
@@ -57,7 +62,7 @@ const HomeScreen  = ({navigation}) => {
       }
     )
 
-    askPhonePermission()
+    canAccessPhone()
     .then((allowed) => {
       if(!allowed){
         alertPhoneNotAllowed();
