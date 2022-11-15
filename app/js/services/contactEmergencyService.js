@@ -10,7 +10,7 @@ const sendMessageToPersonalContact = (personalContactNumber) => {
         personalContactNumber = DEVELOPMENT_NUMBER
     }
 
-    DirectSms.sendDirectSms(personalContactNumber, "Uma ligacao a emergencia foi efetuada");
+    if (personalContactNumber) DirectSms.sendDirectSms(personalContactNumber, "Uma ligacao a emergencia foi efetuada");
 }
 
 const callEmergencyNumber = (number) => {
@@ -21,20 +21,20 @@ const callEmergencyNumber = (number) => {
     SendIntentAndroid.sendPhoneCall(number, true)
 }
 
-const sideEffects = (navigation, personalContactNumber) => {
+const sideEffects = (navigation, smsNumber) => {
     try{
         navigation.navigate("messageSent")
-        sendMessageToPersonalContact(personalContactNumber)
+        sendMessageToPersonalContact(smsNumber)
     }
     catch(e){
         console.log("Error while executing the contact emergency side effects: ", e)
     }
 }
 
-export default contactEmergency = (number, personalContactNumber, navigation) => {
+const contactEmergency = (number, smsNumber, navigation) => {
     try{
         callEmergencyNumber(number)
-        sideEffects(navigation, personalContactNumber)
+        sideEffects(navigation, smsNumber)
     }
     catch(e){
         console.log("Error in contact emergency: ", e)
@@ -52,3 +52,9 @@ export default contactEmergency = (number, personalContactNumber, navigation) =>
     }
     
 }
+
+const contactPersonalContact = (number, navigation) => {
+    contactEmergency(number, number, navigation)
+}
+
+export { contactEmergency, contactPersonalContact }

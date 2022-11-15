@@ -5,9 +5,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/homeScreenStyles';
 import ConfigureContactButton from '../components/ConfigureContactButton';
 import { default as Text } from '../components/UnscalableText';
-import goToPersonalContactScreen from '../js/services/goToPersonalContactScreenService';
 import { getPersonalContact } from '../js/data/localStorageService';
-import contactEmergency from '../js/services/contactEmergencyService';
+import goToPersonalContactScreen from '../js/services/goToPersonalContactScreenService';
+import { contactEmergency, contactPersonalContact } from '../js/services/contactEmergencyService';
 import truncateText from '../js/services/truncateTextService';
 import { alertPhoneNotAllowed, canAccessPhone } from '../js/services/phonePermissionServices';
 
@@ -24,13 +24,12 @@ const CallEmergencyButton = ({title, navigation, number, personalContactNumber})
   </Pressable>
 }
 
-const CallPersonalContactButton = ({navigation, personalContact, personalContactNumber}) => {
+const CallPersonalContactButton = ({navigation, personalContact}) => {
   return personalContact ?
     <Pressable style={styles.callPersonalContact} onPress={
       () => {
-        contactEmergency(
+        contactPersonalContact(
           personalContact.number,
-          personalContactNumber,
           navigation
         )
       }
@@ -74,10 +73,25 @@ const HomeScreen  = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
         <View style={styles.homeScreenView}>
-          <CallPersonalContactButton navigation={navigation} personalContact={personalContact} personalContactNumber={personalContact?.number}/>
-          <CallEmergencyButton title="Policia" number="190" navigation={navigation} personalContactNumber={personalContact?.number}/>
-          <CallEmergencyButton title="Ambulancia" number="192" navigation={navigation} personalContactNumber={personalContact?.number}/>
-          <CallEmergencyButton title="Bombeiro" number="193" navigation={navigation} personalContactNumber={personalContact?.number}/>
+          <CallPersonalContactButton navigation={navigation} personalContact={personalContact}/>
+          <CallEmergencyButton 
+            title="Policia"
+            number="190"
+            navigation={navigation}
+            personalContactNumber={personalContact?.number}
+          />
+          <CallEmergencyButton
+            title="Ambulancia"
+            number="192"
+            navigation={navigation}
+            personalContactNumber={personalContact?.number}
+          />
+          <CallEmergencyButton
+            title="Bombeiro"
+            number="193"
+            navigation={navigation}
+            personalContactNumber={personalContact?.number}
+          />
           <ConfigureContactButton navigation={navigation} />
         </View>
     </SafeAreaView>

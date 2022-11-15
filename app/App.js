@@ -32,7 +32,7 @@ const CustomTheme = {
 }
 
 const App  = () => {
-  const [isFirstLauch, setIsFirstLaunch] = useState(true);
+  const [isFirstLaunch, setIsFirstLaunch] = useState(true);
 
   useEffect(()=>{
 
@@ -55,7 +55,7 @@ const App  = () => {
           headerTitleAllowFontScaling:false
         }}>
           {
-            isFirstLauch ? <Stack.Screen 
+            isFirstLaunch ? <Stack.Screen
              name="welcome"
              component={WelcomeScreen}
              options={{headerShown: false}}
@@ -71,7 +71,7 @@ const App  = () => {
             component={PersonalContactScreen}
             options={
               {
-                title: 'Contato de emergencia',
+                title: "Contato de emergencia",
                 headerStyle: {height: StatusBar.currentHeight + 72},
                 headerTitleStyle:styles.personalContactHeader
               }
@@ -82,7 +82,7 @@ const App  = () => {
             component={MessageSentScreen}
             options={
               {
-                title: 'Ambulancia',
+                title: "Ambulancia",
                 headerStyle: {height: StatusBar.currentHeight + 72},
                 headerTitleStyle:styles.messageSentHeader
               }
