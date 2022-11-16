@@ -90,39 +90,39 @@ Assim, vamos inicialmente testar o aplicativo concendendo todas as permissoes e 
 7. O aplicativo deve abrir a Tela Principal;
 
 A Tela Principal deve ter essa aparencia, com o seu contato selecionado no topo da tela:
-![Interface da tela inicial](./tutorial/assets/tela_inicial.jpg)
+<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela inicial" width="50%">
 
-8. Feche e abra o aplicativo, ele deve ir diretamente para a Tela Principal.
-9. Clique no botao de Configuracao de Contato (o com a engrenagem na base da tela).
-10. Remova o Contato selecionado.
-11. Observe se o card branco esta com essa aparencia.
-![Interface da tela de configuracao de contato vazia](./tutorial/assets/tela_configurar_contato_vazia.jpg)
+1. Feche e abra o aplicativo, ele deve ir diretamente para a Tela Principal.
+2. Clique no botao de Configuracao de Contato (o com a engrenagem na base da tela).
+3.  Remova o Contato selecionado.
+4.  Observe se o card branco esta com essa aparencia.
+<img src="./tutorial/assets/tela_configurar_contato_vazia.jpg" alt="Interface da tela de configuracao de contato vazia" width="50%">
 
-12. Clique em voltar, voce deve retornar a Tela Principal.
-13. Verifique o se o botao de ligar pro contato pessoal foi substituido pelo botao de Adicionar.
-14. Clique no botao de Configuracao de Contato.
-15. Selecione Atualizar Contato.
-16. Adicione um contato.
-17. Verifique se os dados do contato estao aparencendo no card branco.
-18. Volte a tela inicial.
-19. Verifique se o nome do contato esta aparecendo no botao superior.
-![Interface da tela de inicial com contato preenchido](./tutorial/assets/tela_inicial.jpg)
+1.  Clique em voltar, voce deve retornar a Tela Principal.
+2.  Verifique o se o botao de ligar pro contato pessoal foi substituido pelo botao de Adicionar.
+3.  Clique no botao de Configuracao de Contato.
+4.  Selecione Atualizar Contato.
+5.  Adicione um contato.
+6.  Verifique se os dados do contato estao aparencendo no card branco.
+7.  Volte a tela inicial.
+8.  Verifique se o nome do contato esta aparecendo no botao superior.
+<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela de inicial com contato preenchido" width="50%">
 
-20. Clique no botao de Configuracao de Contato.
-21. Remova o contato.
-22. Volte a Tela Principal, verifique se o botao de chamar o contato pessoal foi substituido pelo botao de "Adicionar"
-![Interface da tela de inicial sem contato](./tutorial/assets/tela_inicial_sem_contato.jpg)
+1.  Clique no botao de Configuracao de Contato.
+2.  Remova o contato.
+3.  Volte a Tela Principal, verifique se o botao de chamar o contato pessoal foi substituido pelo botao de "Adicionar"
+<img src="./tutorial/assets/tela_inicial_sem_contato.jpg" alt="Interface da tela de inicial sem contato" width="50%">
 
-23. Adicione um contato pelo botao no topo da tela.
-24. Verifique se os dados do contato estao sendo Exibidos no Card Branco e na Tela Principal.
-25. Volte na tela de Configuracao de Contato e clique em Alterar Contato, troque o contato e verifique se ele esta sendo exibido nas duas telas.
-26. Clique para ligar ao Contato Pessoal -- se desejado crie um contato separado com um numero quebrado (ex: `111`) pra evitar pagar pelas mensagens.
-27. Verifique se o discador abre **ja executando a ligacao**.
-28. Ao fechar o discador, voce deve voltar para tela de Ligacao de Emergencia
-![Interface da tela de chamada de emergencia](./tutorial/assets/tela_chamada_emergencia.jpg)
+1.  Adicione um contato pelo botao no topo da tela.
+2.  Verifique se os dados do contato estao sendo Exibidos no Card Branco e na Tela Principal.
+3.  Volte na tela de Configuracao de Contato e clique em Alterar Contato, troque o contato e verifique se ele esta sendo exibido nas duas telas.
+4.  Clique para ligar ao Contato Pessoal -- se desejado crie um contato separado com um numero quebrado (ex: `111`) pra evitar pagar pelas mensagens.
+5.  Verifique se o discador abre **ja executando a ligacao**.
+6.  Ao fechar o discador, voce deve voltar para tela de Ligacao de Emergencia
+<img src="./tutorial/assets/tela_chamada_emergencia.jpg" alt="Interface da tela de chamada de emergencia" width="50%">
 
-29. Ao fechar a tela de ligacao de emergencia voce deve voltar para a Tela Principal.
-30. Abra seu aplicativo de mensagens, um SMS para o numero do contato pessoal deve ter sido
+1.  Ao fechar a tela de ligacao de emergencia voce deve voltar para a Tela Principal.
+2.  Abra seu aplicativo de mensagens, um SMS para o numero do contato pessoal deve ter sido
 mandado.
 
 ### ADICIONANDO O CONTATO DEPOIS
