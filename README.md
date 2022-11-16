@@ -90,13 +90,13 @@ Assim, vamos inicialmente testar o aplicativo concendendo todas as permissoes e 
 7. O aplicativo deve abrir a Tela Principal;
 
 A Tela Principal deve ter essa aparencia, com o seu contato selecionado no topo da tela:
-<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela inicial" width="50%">
+<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela inicial" width="30%" />
 
 1. Feche e abra o aplicativo, ele deve ir diretamente para a Tela Principal.
 2. Clique no botao de Configuracao de Contato (o com a engrenagem na base da tela).
 3.  Remova o Contato selecionado.
 4.  Observe se o card branco esta com essa aparencia.
-<img src="./tutorial/assets/tela_configurar_contato_vazia.jpg" alt="Interface da tela de configuracao de contato vazia" width="50%">
+<img src="./tutorial/assets/tela_configurar_contato_vazia.jpg" alt="Interface da tela de configuracao de contato vazia" width="70%">
 
 1.  Clique em voltar, voce deve retornar a Tela Principal.
 2.  Verifique o se o botao de ligar pro contato pessoal foi substituido pelo botao de Adicionar.
@@ -106,12 +106,12 @@ A Tela Principal deve ter essa aparencia, com o seu contato selecionado no topo 
 6.  Verifique se os dados do contato estao aparencendo no card branco.
 7.  Volte a tela inicial.
 8.  Verifique se o nome do contato esta aparecendo no botao superior.
-<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela de inicial com contato preenchido" width="50%">
+<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela de inicial com contato preenchido" width="70%">
 
 1.  Clique no botao de Configuracao de Contato.
 2.  Remova o contato.
 3.  Volte a Tela Principal, verifique se o botao de chamar o contato pessoal foi substituido pelo botao de "Adicionar"
-<img src="./tutorial/assets/tela_inicial_sem_contato.jpg" alt="Interface da tela de inicial sem contato" width="50%">
+<img src="./tutorial/assets/tela_inicial_sem_contato.jpg" alt="Interface da tela de inicial sem contato" width="70%">
 
 1.  Adicione um contato pelo botao no topo da tela.
 2.  Verifique se os dados do contato estao sendo Exibidos no Card Branco e na Tela Principal.
@@ -119,7 +119,7 @@ A Tela Principal deve ter essa aparencia, com o seu contato selecionado no topo 
 4.  Clique para ligar ao Contato Pessoal -- se desejado crie um contato separado com um numero quebrado (ex: `111`) pra evitar pagar pelas mensagens.
 5.  Verifique se o discador abre **ja executando a ligacao**.
 6.  Ao fechar o discador, voce deve voltar para tela de Ligacao de Emergencia
-<img src="./tutorial/assets/tela_chamada_emergencia.jpg" alt="Interface da tela de chamada de emergencia" width="50%">
+<img src="./tutorial/assets/tela_chamada_emergencia.jpg" alt="Interface da tela de chamada de emergencia" width="70%">
 
 1.  Ao fechar a tela de ligacao de emergencia voce deve voltar para a Tela Principal.
 2.  Abra seu aplicativo de mensagens, um SMS para o numero do contato pessoal deve ter sido
