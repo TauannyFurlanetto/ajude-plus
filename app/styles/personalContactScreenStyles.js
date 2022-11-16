@@ -1,13 +1,17 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import { defaultMargin, mediumTextSize } from './styles';
+import {
+    defaultMargin,
+    mediumTextSize,
+    optionalHorizontalMargin
+} from './sizes';
 
 export default StyleSheet.create({
     personalContactView: {
         flex:1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        marginHorizontal: defaultMargin,
+        marginHorizontal: optionalHorizontalMargin,
         marginVertical: defaultMargin + 10
     },
     contactCardView: {
@@ -38,8 +42,8 @@ export default StyleSheet.create({
         alignSelf: 'flex-end'
     },
     removeContactImage: {
-        width: 45,
-        height: 45
+        width: mediumTextSize > 18 ? 45 : 35,
+        height: mediumTextSize > 18 ? 45 : 35
     },
     updateContactButton: {
         backgroundColor: colors.yellow,

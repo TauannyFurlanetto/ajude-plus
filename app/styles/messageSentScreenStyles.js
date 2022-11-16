@@ -1,13 +1,18 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import { defaultMargin, mediumTextSize, largeTextSize } from './styles';
+import { 
+    defaultMargin,
+    mediumTextSize,
+    largeTextSize,
+    optionalHorizontalMargin
+} from './sizes';
 
 export default StyleSheet.create({
     messageSentView: {
         flex:1,
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginHorizontal: defaultMargin,
+        marginHorizontal: optionalHorizontalMargin,
         marginVertical: defaultMargin + 10
     },
     messageSentMessageView: {

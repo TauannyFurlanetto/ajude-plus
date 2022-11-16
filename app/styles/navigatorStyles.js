@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import { mediumTextSize } from './styles';
+import { mediumTextSize } from './sizes';
 
 export default StyleSheet.create({
     personalContactHeader: {

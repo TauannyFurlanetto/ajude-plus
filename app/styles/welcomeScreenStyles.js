@@ -1,14 +1,19 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import { defaultMargin, largeTextSize, mediumTextSize } from './styles'
+import {
+    defaultMargin,
+    largeTextSize,
+    mediumTextSize,
+    optionalHorizontalMargin
+} from './sizes';
 
 export default StyleSheet.create({
     welcomeView: {
       flex: 1,
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginVertical: 90,
-      marginHorizontal: defaultMargin
+      marginVertical: defaultMargin + 30,
+      marginHorizontal: optionalHorizontalMargin
     },
     welcomeText: {
       color: colors.light,
@@ -29,7 +34,7 @@ export default StyleSheet.create({
       gap: 10,
     },
     addContactButton: {
-      padding: 20,
+      padding: defaultMargin === 20 ? defaultMargin : 15,
       borderColor: colors.yellow,
       borderWidth: 5,
       borderRadius: 30,
@@ -37,7 +42,7 @@ export default StyleSheet.create({
       alignItems: 'center'
     },
     addContactButtonPressed: {
-      padding: 20,
+      padding: defaultMargin === 20 ? defaultMargin : 15,
       borderColor: colors.yellow,
       borderWidth: 5,
       borderRadius: 30,
@@ -54,7 +59,7 @@ export default StyleSheet.create({
       textAlign: 'center'
     },
     addLatterButton: {
-      padding: 20,
+      padding: defaultMargin === 20 ? defaultMargin : 1,
       backgroundColor: colors.dark,
       alignItems: 'center'
     },

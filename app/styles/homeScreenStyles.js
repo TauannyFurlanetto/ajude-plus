@@ -1,18 +1,24 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import { defaultMargin, largeTextSize } from './styles';
+import {
+    defaultMargin,
+    largeTextSize,
+    mediumTextSize,
+    optionalHorizontalMargin
+} from './sizes';
 
 export default StyleSheet.create({
   homeScreenView: {
-    margin: defaultMargin,
+    marginVertical: defaultMargin,
+    marginHorizontal: optionalHorizontalMargin,
     flex: 1,
     justifyContent: 'space-between',
     alignContent: 'center',
   },
   callEmergencyButton: {
-    padding: 10,
+    padding: defaultMargin - defaultMargin / 2,
     borderColor: colors.yellow,
-    borderWidth: 5,
+    borderWidth: 2,
     borderRadius: 30,
     backgroundColor: colors.yellow,
     alignItems: 'center',
@@ -20,7 +26,7 @@ export default StyleSheet.create({
     gap: 10,
   },
   callPersonalContact: {
-    padding: 13,
+    padding: defaultMargin > 3 ? defaultMargin - defaultMargin / 2 : 5,
     borderColor: colors.yellow,
     borderWidth: 5,
     borderRadius: 100,
@@ -31,7 +37,7 @@ export default StyleSheet.create({
     overflow: 'hidden'
   },
   addPersonalContact: {
-    padding: 13,
+    padding: defaultMargin > 3 ? defaultMargin - defaultMargin / 2 : 5,
     borderColor: colors.yellow,
     borderWidth: 5,
     borderRadius: 100,
@@ -61,20 +67,20 @@ export default StyleSheet.create({
     textTransform: 'uppercase'
   },
   callEmergencyImage: {
-    width: 95,
-    height: 95,
+    width: mediumTextSize + 50,
+    height: mediumTextSize + 50,
     marginBottom: 10,
     resizeMode:'contain'
   },
   callPersonalContactImage: {
-    width: 40,
-    height: 40,
+    width: mediumTextSize > 18 ? mediumTextSize + 17 : mediumTextSize + 5,
+    height: mediumTextSize > 18 ? mediumTextSize + 17 : mediumTextSize + 5,
     marginRight: 35,
     marginLeft: 20
   },
   addPersonalContactImage: {
-    width: 48,
-    height: 48,
+    width: mediumTextSize + 15,
+    height: mediumTextSize + 15,
     marginRight: 25,
     marginLeft: 20
   }
