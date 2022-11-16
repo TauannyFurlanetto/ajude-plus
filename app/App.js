@@ -11,11 +11,7 @@ import MessageSentScreen from './screens/MessageSentScreen';
 import colors from './styles/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import styles from './styles/navigatorStyles';
-import {
-  clearDatabase,
-  getIsFirstLaunch,
-  setStoredFirstLaunch
-} from './js/data/localStorageService';
+import { clearDatabase, getIsFirstLaunch } from './js/data/localStorageService';
 import { CLEAR_DATABASE } from './js/config';
 
 const Stack = createStackNavigator();
@@ -41,7 +37,6 @@ const App  = () => {
     getIsFirstLaunch()
       .then((result) => {
         result?.value === "false" ? setIsFirstLaunch(false) : setIsFirstLaunch(true)
-        setStoredFirstLaunch("false")
       })
       .catch ((e) => (
         console.log("Failed to fetch from storage: ", e)
