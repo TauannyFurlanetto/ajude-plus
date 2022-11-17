@@ -13,7 +13,7 @@ export default removeContact = async(setState) => {
       .catch((e) => {
         Alert.alert(
           "Erro ao remover o contato",
-          "Nao foi possivel remover o seu contato",
+          "Não foi possível remover o seu contato",
           [
             {
               "text": "Ok",

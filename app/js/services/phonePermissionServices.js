@@ -3,8 +3,8 @@ import { Alert, BackHandler, PermissionsAndroid } from 'react-native';
 const alertPhoneNotAllowed = () => {
   Alert.alert(
     "Proibido de acessar o telefone",
-    "O aplicativo nao pode funcionar sem permissao ao telefone " +
-    "habilite a permissao manualmente nas configuracoes do aparelho",
+    "O aplicativo não pode funcionar sem permissão ao telefone " +
+    "habilite a permissão manualmente nas configurações do aparelho",
     [
       {
         "text": "Sair",

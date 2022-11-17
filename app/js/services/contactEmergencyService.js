@@ -40,8 +40,8 @@ const contactEmergency = (number, smsNumber, navigation) => {
         console.log("Error in contact emergency: ", e)
 
         Alert.alert(
-            "Erro ao contatar o servico de emergencia",
-            "O aplicativo nao conseguiu contatar a emergencia",
+            "Erro ao contatar o servico de emergência",
+            "O aplicativo não conseguiu contatar a emergência",
             [
               {
                 "text": "Ok",

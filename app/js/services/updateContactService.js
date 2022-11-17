@@ -38,8 +38,8 @@ const askSMSPermission = async () => {
     if (sms_permission !== PermissionsAndroid.RESULTS.GRANTED){
         Alert.alert(
           "Proibido de mandar SMS",
-          "O aplicativo nao ira mandar mensagens em caso de emergencia, " + 
-          "habilite a permissao manualmente nas configuracoes do aparelho",
+          "O aplicativo não ira mandar mensagens em caso de emergência, " + 
+          "habilite a permissão manualmente nas configurações do aparelho",
           [
             {
               "text": "Ok",
@@ -77,8 +77,8 @@ export default updateContact = async (props)  => {
       else{
         Alert.alert(
           "Proibido de acessar os Contatos",
-          "O aplicativo nao consegue acessar os contatos, " + 
-          "habilite a permissao manualmente nas configuracoes do aparelho",
+          "O aplicativo não consegue acessar os contatos, " + 
+          "habilite a permissão manualmente nas configurações do aparelho",
           [
             {
               "text": "Ok",
@@ -96,7 +96,7 @@ export default updateContact = async (props)  => {
       console.log("Error in updateContact: ", e)
       Alert.alert(
         "Erro ao adicionar/atualizar o contato",
-        "Nao foi possivel adicionar/atualizar o seu contato",
+        "Não foi possível adicionar/atualizar o seu contato",
         [
           {
             "text": "Continuar",

@@ -9,8 +9,8 @@ export default goToMainScreen = (navigation) => {
     catch(e){
       console.log("Error in navigate to mainScreen: ", e)
       Alert.alert(
-        "Erro ao ir ate a tela inicial do aplicativo",
-        "Nao foi possivel ir ate o menu inicial",
+        "Erro ao ir até a tela inicial do aplicativo",
+        "Não foi possível ir até o menu inicial",
         [
           {
             "text": "Sair",

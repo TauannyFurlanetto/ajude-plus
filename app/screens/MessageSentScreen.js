@@ -12,9 +12,9 @@ const MessageSentScreen  = ({navigation}) => {
         <View style={styles.messageSentView}>
           <View style={styles.messageSentMessageView}>
             <View style={styles.messageCardHeroView}>
-              <Text style={styles.messageCardHeroText}>Fique em seguranca</Text>
+              <Text style={styles.messageCardHeroText}>Fique em segurança</Text>
             </View>
-            <Text style={styles.messageText}>Mensagem foi enviada para contato de emergencia</Text>
+            <Text style={styles.messageText}>Mensagem foi enviada para contato de emergência</Text>
           </View>
           <ConfigureContactButton navigation={navigation} replace={true}/>
         </View>

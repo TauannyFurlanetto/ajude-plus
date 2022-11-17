@@ -25,7 +25,7 @@ const ContactCardText = ({personalContact}) => {
     <Text style={styles.contactCardText}>Nome:
       <Text style={styles.contactCardTextHighlight}> {truncateText(personalContact.name, 13)}</Text>
     </Text>
-    <Text style={styles.contactCardText}>Numero:
+    <Text style={styles.contactCardText}>Número:
       <Text style={styles.contactCardTextHighlight}> {truncateText(personalContact.number, 13)}</Text>
     </Text>
   </View>

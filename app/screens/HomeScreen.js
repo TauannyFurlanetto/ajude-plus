@@ -75,13 +75,13 @@ const HomeScreen  = ({navigation}) => {
         <View style={styles.homeScreenView}>
           <CallPersonalContactButton navigation={navigation} personalContact={personalContact}/>
           <CallEmergencyButton 
-            title="Policia"
+            title="Polícia"
             number="190"
             navigation={navigation}
             personalContactNumber={personalContact?.number}
           />
           <CallEmergencyButton
-            title="Ambulancia"
+            title="Ambulância"
             number="192"
             navigation={navigation}
             personalContactNumber={personalContact?.number}

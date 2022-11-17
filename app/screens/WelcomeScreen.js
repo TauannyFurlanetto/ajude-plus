@@ -14,7 +14,7 @@ const addContactButtonStyle = (pressed) => {
 }
 
 const AddContactButton = ({navigation}) => <Pressable onPress={() => {updateContact({navigation})}} style={ ({pressed}) => addContactButtonStyle(pressed)}>
-  <Text style={styles.addContactText}>Adicionar contato de emergencia</Text>
+  <Text style={styles.addContactText}>Adicionar contato de emergência</Text>
 </Pressable>
 
 const AddContactLaterButton = ({navigation}) =>  <Pressable onPress={() => {goToMainScreen(navigation)}} style={styles.addLatterButton}>
@@ -40,8 +40,8 @@ const WelcomeScreen = ({navigation}) => {
         <View style={styles.welcomeView}>
           <Text style={styles.welcomeText}>
             Fique bem.{"\n"}Busque ajuda de forma 
-              <Text style={styles.welcomeTextHighlight}> rapida</Text>, <Text style={styles.welcomeTextHighlight}>simples</Text>, 
-              e com <Text style={styles.welcomeTextHighlight}>seguranca</Text>
+              <Text style={styles.welcomeTextHighlight}> rápida</Text>, <Text style={styles.welcomeTextHighlight}>simples</Text>, 
+              e com <Text style={styles.welcomeTextHighlight}>segurança</Text>
           </Text>
           <View style={styles.addContactButtonsView}>
             <AddContactButton navigation={navigation} />

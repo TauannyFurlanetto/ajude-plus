@@ -66,7 +66,7 @@ const App  = () => {
             component={PersonalContactScreen}
             options={
               {
-                title: "Contato de emergencia",
+                title: "Contato de emergência",
                 headerStyle: {height: StatusBar.currentHeight + 72},
                 headerTitleStyle:styles.personalContactHeader
               }
@@ -77,7 +77,7 @@ const App  = () => {
             component={MessageSentScreen}
             options={
               {
-                title: "Ambulancia",
+                title: "Ambulância",
                 headerStyle: {height: StatusBar.currentHeight + 72},
                 headerTitleStyle:styles.messageSentHeader
               }

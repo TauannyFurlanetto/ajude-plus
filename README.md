@@ -90,7 +90,7 @@ Assim, vamos inicialmente testar o aplicativo concendendo todas as permissoes e 
 7. O aplicativo deve abrir a Tela Principal;
 
 A Tela Principal deve ter essa aparencia, com o seu contato selecionado no topo da tela:
-<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela inicial" style="width: 60%;">
+<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela inicial" width="70%">
 
 1. Feche e abra o aplicativo, ele deve ir diretamente para a Tela Principal.
 2. Clique no botao de Configuracao de Contato (o com a engrenagem na base da tela).
