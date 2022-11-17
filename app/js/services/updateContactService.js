@@ -71,7 +71,7 @@ export default updateContact = async (props)  => {
             await setPersonalContact(contact)
             if (setState) setState(contact)
             await askSMSPermission()
-            if (navigation) goToMainScreen(navigation)
+            if (navigation) goToMainScreen(navigation, false)
           }
       }
       else{
@@ -82,7 +82,7 @@ export default updateContact = async (props)  => {
           [
             {
               "text": "Ok",
-              onPress: () => { navigation ? goToMainScreen(navigation) : () => {}}
+              onPress: () => { navigation ? goToMainScreen(navigation, false) : () => {}}
             },
             {
               "text": "Sair",
@@ -100,7 +100,7 @@ export default updateContact = async (props)  => {
         [
           {
             "text": "Continuar",
-            onPress: () =>  {navigation ? goToMainScreen(navigation): null}
+            onPress: () =>  {navigation ? goToMainScreen(navigation, false): null}
           },
           {
             "text": "Sair",

@@ -1,10 +1,10 @@
 import { Alert, BackHandler } from 'react-native';
 import { setStoredFirstLaunch } from '../data/localStorageService';
 
-export default goToMainScreen = (navigation) => {
+export default goToMainScreen = (navigation, setState = true) => {
     try{
       navigation.replace("home")
-      setStoredFirstLaunch("false")
+      if(setState) setStoredFirstLaunch("false")
     }
     catch(e){
       console.log("Error in navigate to mainScreen: ", e)
