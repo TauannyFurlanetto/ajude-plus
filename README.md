@@ -3,7 +3,7 @@ O aplicativo **AjudePlus** foi desenvolvido para disciplina de Desenvolvimento d
 
 Ele visa aumentar a acessibilidade dos serviços de emergência para o idosos, pessoas com doenças crônicas, físicas ou cognitivas.
 
-O aplicativo foi desenvolvido usando React Native para a plataforma **Android**.
+O aplicativo foi desenvolvido usando React Native para a plataforma **Android**. Ele permite que o usuário contate os serviços de emergência com somente um clique. Como funcionalidade extra, permite configurar um número de emergência para ser chamado e notificado por SMS em caso de ligações.
 
 # INTEGRANTES
 
@@ -53,16 +53,15 @@ npx react-native run-android
 ```
 
 # COMO TESTAR
-Considerando as limitações do Expo, é necessario emular o aplicativo rodando manualmente como especificado na [secção](#COMO RODAR).
+Considerando as limitações do Expo, é necessario emular o aplicativo rodando manualmente como especificado na secção **COMO RODAR**.
 
 Algumas observações importantes:
 
 - O aplicativo trabalha com três permissões (SMS, Contatos e Telefone);
 - Se as permissões forem negadas em *runtime* você vai precisar permiti-las manualmente pelas configurações do aparelho, porque o aplicativo as define como `never_ask_again`, não sendo possível pedir as permissões novamente em *runtime*;
 - É importante destacar que o comportamento do app é diferente se as permissões forem negadas pelas configurações, porque, nesse caso, podemos pedi-las novamente;
-- Como o aplicativo liga automaticamente ao clicar no botão de chamada, os números de emergência foram substituídos por `111`, você pode alterar esse comportamento trocando a variável `DEVELOPMENT_CALLS` para `false` no arquivo `app/js/config.js`;
-    - Recomenda-se **não** contatar os números de emergência (emergência, bombeiros e polícia) caso essa variável seja desabilitada;
-    - Como o aplicativo manda SMS você pode ser cobrado se trocar o valor desse número.
+- O aplicativo liga automaticamente ao clicar no botão de chamada, para evitar chamadas acidentais para os serviços de emergência, recomenda-se que se utilize o emulador virtual para rodar o app.
+    - Caso esteja emulando num aparelho real, defina a variável `DEVELOPMENT_CALLS` para `true` no arquivo `app/js/config.js`, isso vai fazer que todas as chamadas e mensagens sejam substituidas por um número inválido (`111`).
 - Como o aplicativo guarda estado, caso queira limpar os dados armazenados, defina `CLEAR_DATABASE` para `true` em `app/js/config.js`. Isso vai fazer que a cada build o banco de dados seja limpo.
 
 Assim, vamos inicialmente testar o aplicativo concendendo todas as permissões e depois remove-las, atá que todas sejam negadas (pelas configurações) e eventualmente em *runtime*.
