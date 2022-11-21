@@ -37,7 +37,7 @@ A partir daí você pode iniciar o app manualmente. Não utilize o **Expo** porq
 - o aplicativo fica com as cores quebradas no modo noturno em certas versões da interface do sistema (notavelmente Xiaomi e POCO)
 
 1. [Crie](https://developer.android.com/studio/run/managing-avds) e inicie o dispositivo virtual no Android Studio
-![Interface do android Studio indicando onde abrir o dispositivo virtual](./tutorial/assets/abrir_emulador.png)
+<img src="./tutorial/assets/abrir_emulador.png" alt="Interface do android Studio indicando onde abrir o dispositivo virtual" width="45%" style="">
 
 É recomendado criar um aplicativo com a versão 11 do Android (`R`) e com aproximadamente 5 polegadas de tela (ex: `Pixel 2`). Aparelhos com outras versões do Android e com telas menores podem ser instáveis.
 
@@ -75,13 +75,14 @@ Assim, vamos inicialmente testar o aplicativo concendendo todas as permissões e
 7. O aplicativo deve abrir a Tela Principal;
 
 A Tela Principal deve ter essa aparência, com o seu contato selecionado no topo da tela:
-<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela inicial" width="70%">
+
+<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela inicial" width="37%" style="">
 
 8. Feche e abra o aplicativo, ele deve ir diretamente para a Tela Principal.
 9. Clique no botão de Configuracao de Contato (o com a engrenagem na base da tela).
 10. Remova o Contato selecionado.
 11. Observe se o card branco esta com essa aparência.
-<img src="./tutorial/assets/tela_configurar_contato_vazia.jpg" alt="Interface da tela de configuração de contato vazia" width="70%">
+<img src="./tutorial/assets/tela_configurar_contato_vazia.jpg" alt="Interface da tela de configuração de contato vazia" width="37%" style="">
 
 12.  Clique em voltar, você deve retornar a Tela Principal.
 13.  Verifique o se o botão de ligar pro contato pessoal foi substituído pelo botão de Adicionar.
@@ -91,12 +92,12 @@ A Tela Principal deve ter essa aparência, com o seu contato selecionado no topo
 17.  Verifique se os dados do contato estao aparencendo no card branco.
 18.  Volte a Tela Principal.
 19.  Verifique se o nome do contato esta aparecendo no botão no topo da tela.
-<img src="./tutorial/assets/tela_principal.jpg" alt="Interface da tela de inicial com contato preenchido" width="70%">
+<img src="./tutorial/assets/tela_principal.jpg" alt="Interface da tela de inicial com contato preenchido" width="37%" style="">
 
 20.  Clique no botão de Configuração de Contato.
 21.  Remova o contato.
 22.  Volte a Tela Principal, verifique se o botão de chamar o contato pessoal foi substituído pelo botão de "Adicionar"
-<img src="./tutorial/assets/tela_inicial_sem_contato.jpg" alt="Interface da tela de inicial sem contato" width="70%">
+<img src="./tutorial/assets/tela_inicial_sem_contato.jpg" alt="Interface da tela de inicial sem contato" width="37%" style="">
 
 23.  Adicione um contato pelo botão no topo da tela.
 24.  Verifique se os dados do contato estao sendo exibidos no card branco na tela de Configuração de Contato e na Tela Principal.
@@ -104,7 +105,7 @@ A Tela Principal deve ter essa aparência, com o seu contato selecionado no topo
 26.  Clique para ligar ao Contato Pessoal -- se desejado crie um contato separado com um número inválido (ex: `111`) pra evitar pagar pelas mensagens.
 27.  Verifique se o discador abre **já executando a ligação**.
 28.  Ao fechar o discador, você deve voltar para tela de Ligação de Emergência
-<img src="./tutorial/assets/tela_chamada_emergencia.jpg" alt="Interface da tela de chamada de emergência" width="70%">
+<img src="./tutorial/assets/tela_chamada_emergencia.jpg" alt="Interface da tela de chamada de emergência" width="37%" style="">
 
 30.  Ao fechar a tela de ligação de emergência você deve voltar para a Tela Principal.
 31.  Abra seu aplicativo de mensagens, um SMS para o número do contato pessoal deve ter sido
