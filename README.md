@@ -91,7 +91,7 @@ A Tela Principal deve ter essa aparência, com o seu contato selecionado no topo
 17.  Verifique se os dados do contato estao aparencendo no card branco.
 18.  Volte a Tela Principal.
 19.  Verifique se o nome do contato esta aparecendo no botão no topo da tela.
-<img src="./tutorial/assets/tela_inicial.jpg" alt="Interface da tela de inicial com contato preenchido" width="70%">
+<img src="./tutorial/assets/tela_principal.jpg" alt="Interface da tela de inicial com contato preenchido" width="70%">
 
 20.  Clique no botão de Configuração de Contato.
 21.  Remova o contato.
